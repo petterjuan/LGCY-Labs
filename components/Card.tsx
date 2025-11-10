@@ -1,0 +1,9 @@
+import { ReactNode } from "react";
+
+export default function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={`bg-white rounded-xl p-6 shadow-sm border border-gray-200 ${className}`}>
+      {children}
+    </div>
+  );
+}
