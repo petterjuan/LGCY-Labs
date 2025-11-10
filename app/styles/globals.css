@@ -16,8 +16,8 @@
   }
 
   body {
-    background-image: radial-gradient(ellipse at top left, rgba(30, 64, 175, 0.03), transparent 20%),
-                      radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.02), transparent 10%);
+    background-image: radial-gradient(ellipse 800px 600px at 80% -50%, rgba(30, 64, 175, 0.03), transparent 50%),
+                      radial-gradient(ellipse 600px 500px at -20% 100%, rgba(245, 158, 11, 0.02), transparent 50%);
     background-color: #f8fafc;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
