@@ -1,25 +1,29 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
-    "./app/**/*.{ts,tsx,js,jsx}",
-    "./components/**/*.{ts,tsx,js,jsx}",
-    "./sections/**/*.{ts,tsx,js,jsx}"
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sections/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: "#1e40af",
         secondary: "#3b82f6",
         accent: "#f59e0b",
-        neutral: "#f8fafc"
+        neutral: "#f8fafc",
       },
-      backgroundImage: {
-        "global-gradient": "linear-gradient(180deg, rgba(30,64,175,0.08) 0%, rgba(59,130,246,0.03) 40%, rgba(248,250,252,1) 100%)"
-      }
-    }
+    },
   },
-  plugins: []
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+  ],
 };
 
 export default config;

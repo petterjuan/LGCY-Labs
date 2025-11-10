@@ -37,61 +37,61 @@ export default function Contact() {
         <h2 className="text-3xl md:text-4xl font-bold text-center">Ready to Build Revenue-Generating AI Systems?</h2>
         <p className="mt-4 text-gray-600 text-center">Let's design a roadmap that increases uptime and drives predictable revenue.</p>
 
-        <form onSubmit={handleSubmit} className="mt-8 bg-white p-6 rounded-lg shadow-sm">
-          <div className="grid gap-4">
+        <form onSubmit={handleSubmit} className="mt-8 bg-white p-8 rounded-xl shadow-md border border-gray-100">
+          <div className="grid gap-5">
             <label className="flex flex-col">
-              <span className="text-sm font-medium text-gray-700">Name</span>
+              <span className="text-sm font-semibold text-gray-800 mb-2">Name</span>
               <input
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="mt-1 p-2 border rounded"
+                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="Your full name"
               />
             </label>
 
             <label className="flex flex-col">
-              <span className="text-sm font-medium text-gray-700">Email</span>
+              <span className="text-sm font-semibold text-gray-800 mb-2">Email</span>
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 p-2 border rounded"
+                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 placeholder="you@company.com"
               />
             </label>
 
             <label className="flex flex-col">
-              <span className="text-sm font-medium text-gray-700">Message</span>
+              <span className="text-sm font-semibold text-gray-800 mb-2">Message</span>
               <textarea
                 required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="mt-1 p-2 border rounded h-32"
+                className="p-3 border border-gray-300 rounded-lg h-40 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                 placeholder="Tell us about your project or the challenge you're facing"
               />
             </label>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="bg-primary text-white px-4 py-2 rounded"
+                className="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg disabled:opacity-60"
               >
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
 
               <a
-                className="text-sm text-gray-600 underline"
+                className="text-sm text-primary hover:text-blue-700 font-medium underline"
                 href="mailto:juan@lgcylabs.com"
               >
                 Or email Juan directly
               </a>
             </div>
 
-            {status === "success" && <p className="text-sm text-green-600">Thanks — we'll be in touch soon.</p>}
-            {status === "error" && <p className="text-sm text-red-600">Something went wrong. Please try again or email juan@lgcylabs.com.</p>}
+            {status === "success" && <p className="text-sm text-green-600 font-medium">✓ Thanks — we'll be in touch soon.</p>}
+            {status === "error" && <p className="text-sm text-red-600 font-medium">✗ Something went wrong. Please try again or email juan@lgcylabs.com.</p>}
           </div>
         </form>
       </div>

@@ -8,7 +8,7 @@ export default function Founder() {
     <section id="founder" className="py-16">
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <motion.div initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+          <motion.div initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
             <h2 className="text-3xl md:text-4xl font-bold">From Enterprise Reliability to Revenue-First AI</h2>
           </motion.div>
           <p className="mt-4 text-gray-600">
@@ -21,7 +21,7 @@ export default function Founder() {
 
           <div className="mt-6">
             <Card>
-              <div className="italic text-gray-700">“We don’t believe automation should just reduce toil — it should increase predictability and revenue.” — Juan Petter</div>
+              <div className="italic text-gray-700">"We don't believe automation should just reduce toil — it should increase predictability and revenue." — Juan Petter</div>
             </Card>
           </div>
         </div>

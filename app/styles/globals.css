@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,23 +9,29 @@
   --bg-primary: #1e40af;
 }
 
-html, body, #__next {
-  height: 100%;
-  background-color: var(--tw-prose-body, white);
-}
+@layer base {
+  html {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
 
-body {
-  background-image: radial-gradient(ellipse at top left, rgba(30,64,175,0.03), transparent 20%), radial-gradient(ellipse at bottom right, rgba(245,158,11,0.02), transparent 10%);
-  /* Use explicit fallback neutral color to avoid theme() resolution during build */
-  background-color: #f8fafc;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  body {
+    background-image: radial-gradient(ellipse at top left, rgba(30, 64, 175, 0.03), transparent 20%),
+                      radial-gradient(ellipse at bottom right, rgba(245, 158, 11, 0.02), transparent 10%);
+    background-color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

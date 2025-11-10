@@ -14,30 +14,30 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-md">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M3 12h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M12 3v18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <Link href="/" className="font-semibold text-lg">
+            <Link href="/" className="font-semibold text-lg text-gray-900">
               LGCY Labs
             </Link>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-gray-600 hover:text-primary transition">
+              <a key={n.href} href={n.href} className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium">
                 {n.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="ml-4 bg-primary text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+              className="ml-4 bg-primary text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-200 hover:shadow-lg font-semibold"
             >
               Build With Us
             </a>
@@ -47,7 +47,7 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setOpen((s) => !s)}
-              className="p-2 rounded-md text-gray-700 hover:bg-gray-100"
+              className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
             >
               {open ? (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -66,11 +66,11 @@ export default function Navbar() {
           <div className="md:hidden pb-4">
             <div className="flex flex-col gap-3">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} className="block px-2 py-2 text-gray-700 hover:bg-gray-50 rounded">
+                <a key={n.href} href={n.href} className="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary rounded transition-colors font-medium">
                   {n.label}
                 </a>
               ))}
-              <a href="#contact" className="block px-3 py-2 bg-primary text-white rounded">
+              <a href="#contact" className="block px-3 py-2.5 bg-primary text-white rounded font-semibold hover:bg-blue-700 transition-colors">
                 Build With Us
               </a>
             </div>
