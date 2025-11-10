@@ -1,13 +1,8 @@
-node_modules
-.next
-.env.local
-.env
-.DS_Store
-.idea
 node_modules/
 .next/
-.env
-node_modules/
-.env
 dist/
 build/
+.env
+.env.local
+.DS_Store
+.idea
