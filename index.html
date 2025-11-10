@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LGCY Labs - Reliability Engineering & AI Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#3b82f6',
+                        accent: '#f59e0b'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="bg-primary text-white p-2 rounded-lg">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <span class="ml-3 text-xl font-bold text-gray-800">LGCY Labs</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#founder" class="text-gray-600 hover:text-primary transition">Founder</a>
+                    <a href="#solutions" class="text-gray-600 hover:text-primary transition">Solutions</a>
+                    <a href="#products" class="text-gray-600 hover:text-primary transition">Products</a>
+                    <a href="#services" class="text-gray-600 hover:text-primary transition">Services</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition">Contact</a>
+                </div>
+                <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                    Build With Us
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                AI Systems That 
+                <span class="text-accent">Heal Themselves</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                From Enterprise Reliability at NetApp to AI Revenue Systems Today
+            </p>
+            <p class="text-lg mb-12 max-w-3xl mx-auto text-blue-200">
+                Founded by Juan Petter - bridging enterprise reliability engineering with AI automation. 
+                We build systems that don't just detect failures, but learn from them to prevent future issues.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#solutions" class="bg-accent text-blue-900 px-8 py-4 rounded-lg font-bold hover:bg-yellow-500 transition text-lg">
+                    Explore Our Framework
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-900 transition text-lg">
+                    Schedule Technical Audit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Story -->
+    <section id="founder" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">From NetApp Enterprise Support to AI Revenue Systems</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        <strong>Juan Petter</strong> started in the trenches of enterprise tech support at NetApp, 
+                        diagnosing complex system failures for Fortune 500 companies. This foundation in reliability 
+                        engineering shaped a unique perspective: systems must be built to fail gracefully and recover intelligently.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        After mastering enterprise reliability, Juan moved to the front lines in sales and marketing, 
+                        learning exactly how businesses generate revenue and what drives customer decisions. This dual 
+                        expertise in both technical reliability and business growth creates a powerful synthesis.
+                    </p>
+                    <div class="bg-gray-100 p-6 rounded-lg border-l-4 border-accent">
+                        <p class="text-gray-700 italic">
+                            "I don't just build AI agents; I build AI agents that close leads, optimize funnels, 
+                            and increase ROI. Reliability isn't just about uptime—it's about predictable revenue streams."
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-gray-100 p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Proven Track Record</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-green-100 text-green-600 p-2 rounded-lg mr-4">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">8x ROAS</div>
+                                <div class="text-sm text-gray-600">Omnichannel advertising campaigns</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-4">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">80% Reduction</div>
+                                <div class="text-sm text-gray-600">Manual follow-up through AI automation</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-4">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">99.9% Uptime</div>
+                                <div class="text-sm text-gray-600">Enterprise systems at NetApp</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-orange-100 text-orange-600 p-2 rounded-lg mr-4">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold">3x Acceleration</div>
+                                <div class="text-sm text-gray-600">Client onboarding through automation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-primary">99.9%</div>
+                    <div class="text-gray-600">Uptime Guarantee</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">60+</div>
+                    <div class="text-gray-600">Tickets/Month Resolved</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">8x</div>
+                    <div class="text-gray-600">ROAS Delivered</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-primary">80%</div>
+                    <div class="text-gray-600">Process Automation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Solutions -->
+    <section id="solutions" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Engineering Excellence Framework</h2>
+            <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                Three pillars of technical excellence that separate scaling startups from stagnant ones
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Reliability Engineering</h3>
+                    <p class="text-gray-600 mb-4">
+                        Built on enterprise experience from NetApp. Proactive systems that anticipate failure 
+                        before it impacts your customers. Automated healing, intelligent monitoring, and bulletproof architecture.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>AI-Powered Anomaly Detection</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Automated Self-Healing Systems</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Incident Prevention Framework</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Revenue-Focused AI</h3>
+                    <p class="text-gray-600 mb-4">
+                        AI systems tuned to growth metrics. We build agents that close leads, optimize funnels, 
+                        and directly impact your bottom line. Measurable ROI in weeks, not months.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Lead Conversion Automation</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Funnel Optimization AI</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>ROI-Driven Development</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="bg-primary text-white w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Scalable Architecture</h3>
+                    <p class="text-gray-600 mb-4">
+                        Infrastructure that grows with your ambition. From MVP to enterprise-grade, 
+                        without the technical debt that cripples innovation.
+                    </p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Microservices Ready</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Cloud-Native Design</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Cost-Optimized Scaling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Suite -->
+    <section id="products" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Ready-to-Deploy Solutions</h2>
+            <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                Accelerate your time to market with battle-tested technical foundations
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl p-6 hover:shadow-xl transition border border-gray-200">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold">AI E-commerce Boilerplate</h3>
+                        <div class="text-3xl font-bold mt-2">$299</div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Complete AI-powered e-commerce platform ready for immediate monetization. 
+                        Perfect for founders who want to validate quickly without technical overhead.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>AI Product Recommendations</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Automated Inventory Management</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Smart Customer Segmentation</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Payment & Shipping Integrated</li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Deploy in 5 Minutes
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl p-6 hover:shadow-xl transition border border-gray-200">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white p-4 rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold">AI Workflow Automation</h3>
+                        <div class="text-xl font-bold mt-2">For Agencies & Enterprises</div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Automate complex business processes with AI-driven workflows. 
+                        Reduce operational costs by 60% while improving accuracy and speed.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Custom AI Agent Development</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Process Optimization</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Multi-platform Integration</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Real-time Analytics</li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Automate Your Workflow
+                    </button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl p-6 hover:shadow-xl transition border border-gray-200">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-600 text-white p-4 rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold">E-commerce Intelligence</h3>
+                        <div class="text-xl font-bold mt-2">Advanced Analytics Dashboard</div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Transform raw data into actionable insights. Predict trends, 
+                        optimize pricing, and maximize customer lifetime value.
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Predictive Analytics</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Customer Behavior Tracking</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Revenue Optimization</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Real-time KPI Monitoring</li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Get Data Insights
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Ticket Services -->
+    <section id="services" class="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Strategic Partnership Tiers</h2>
+            <p class="text-xl text-blue-200 text-center mb-12 max-w-3xl mx-auto">
+                For founders serious about technical excellence and rapid scaling
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white text-gray-800 rounded-xl p-8 transform hover:scale-105 transition">
+                    <div class="text-center mb-6">
+                        <div class="bg-accent text-blue-900 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-search-dollar text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Architecture Deep Audit</h3>
+                        <div class="text-3xl font-bold text-primary mt-2">$2,500</div>
+                        <div class="text-sm text-gray-600">1-Week Comprehensive Review</div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Full System Architecture Review</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Performance & Scalability Assessment</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Security Vulnerability Analysis</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Technical Debt Quantification</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Strategic Roadmap Delivery</li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Schedule Audit
+                    </button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white text-gray-800 rounded-xl p-8 transform hover:scale-105 transition border-4 border-accent relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-accent text-blue-900 px-4 py-1 rounded-full font-bold">MOST POPULAR</span>
+                    </div>
+                    <div class="text-center mb-6">
+                        <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-robot text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">Custom AI Application</h3>
+                        <div class="text-3xl font-bold text-primary mt-2">$20,000</div>
+                        <div class="text-sm text-gray-600">4-6 Week Development</div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Custom AI Model Development</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>End-to-End System Architecture</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Scalable Infrastructure Setup</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Team Training & Documentation</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>3 Months Support & Iteration</li>
+                    </ul>
+                    <button class="w-full bg-accent text-blue-900 py-3 rounded-lg hover:bg-yellow-500 transition font-bold">
+                        Build Your AI Solution
+                    </button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white text-gray-800 rounded-xl p-8 transform hover:scale-105 transition">
+                    <div class="text-center mb-6">
+                        <div class="bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-handshake text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">CTO-as-a-Service</h3>
+                        <div class="text-3xl font-bold text-primary mt-2">$5,000/mo</div>
+                        <div class="text-sm text-gray-600">Ongoing Technical Leadership</div>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Weekly Technical Strategy Sessions</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Team Mentoring & Code Reviews</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Architecture Decision Support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Hiring & Team Building Guidance</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Investor-ready Technical Docs</li>
+                    </ul>
+                    <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Schedule Discovery Call
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Work -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Proven AI Systems in Production</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold mb-3">Agentic Reliability Framework</h3>
+                    <p class="text-gray-600 mb-4">
+                        AI systems that learn from failures to prevent future issues. Self-healing infrastructure 
+                        with FAISS vector memory and adaptive anomaly detection.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        <a href="https://huggingface.co/spaces/petterjuan/agentic-reliability-framework" class="hover:text-primary">
+                            Live Demo on Hugging Face
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 class="text-xl font-bold mb-3">VM Fitness Hub</h3>
+                    <p class="text-gray-600 mb-4">
+                        AI-powered coaching platform with personalized workout generators, 
+                        hybrid content systems, and automated sales funnels.
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <i class="fas fa-shopping-cart mr-2"></i>
+                        <span>E-commerce + AI Coaching Platform</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to Build Revenue-Generating AI Systems?</h2>
+            <p class="text-xl text-gray-600 mb-8">
+                Let's discuss how we can accelerate your technical roadmap with systems that 
+                not only scale but directly drive your bottom line.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                <a href="mailto:juan@lgcylabs.com" class="bg-primary text-white py-4 px-6 rounded-lg hover:bg-blue-700 transition text-lg font-bold">
+                    <i class="fas fa-envelope mr-2"></i>Email Juan Directly
+                </a>
+                <a href="https://calendly.com/juanpetter/intro" class="bg-accent text-blue-900 py-4 px-6 rounded-lg hover:bg-yellow-500 transition text-lg font-bold">
+                    <i class="fas fa-calendar mr-2"></i>Schedule Call
+                </a>
+            </div>
+            <div class="mt-12 grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <i class="fas fa-bolt text-3xl text-accent mb-4"></i>
+                    <h4 class="font-bold text-lg">Fast Response</h4>
+                    <p class="text-gray-600">Typically within 2 hours</p>
+                </div>
+                <div>
+                    <i class="fas fa-lock text-3xl text-accent mb-4"></i>
+                    <h4 class="font-bold text-lg">NDA Ready</h4>
+                    <p class="text-gray-600">Your ideas are safe with us</p>
+                </div>
+                <div>
+                    <i class="fas fa-chart-line text-3xl text-accent mb-4"></i>
+                    <h4 class="font-bold text-lg">Proven Results</h4>
+                    <p class="text-gray-600">Case studies available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white p-2 rounded-lg">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <span class="ml-3 text-xl font-bold">LGCY Labs</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Building reliable, scalable, and revenue-focused AI systems for ambitious founders.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Solutions</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Reliability Engineering</a></li>
+                        <li><a href="#" class="hover:text-white transition">Revenue-Focused AI</a></li>
+                        <li><a href="#" class="hover:text-white transition">Scalable Architecture</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://linkedin.com/in/juanpetter" class="hover:text-white transition"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
+                        <li><a href="https://github.com/petterjuan" class="hover:text-white transition"><i class="fab fa-github mr-2"></i>GitHub</a></li>
+                        <li><a href="https://huggingface.co/petterjuan" class="hover:text-white transition"><i class="fas fa-robot mr-2"></i>Hugging Face</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 LGCY Labs. Building the future, reliably.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
