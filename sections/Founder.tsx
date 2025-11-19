@@ -9,19 +9,19 @@ export default function Founder() {
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <motion.div initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
-            <h2 className="text-3xl md:text-4xl font-bold">From Enterprise Reliability to Revenue-First AI</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">From Fortune 500 Reliability to Your Revenue Growth Engine</h2>
           </motion.div>
           <p className="mt-4 text-gray-600">
-            Juan Petter cut his teeth at NetApp resolving complex system failures for Fortune 500 clients. He pairs that engineering rigor with hands-on revenue strategy to build AI that not only stays up — it earns.
+            While most AI consultants are building chatbots, I was resolving $1M+ system failures for Fortune 500 companies at NetApp. That enterprise-grade reliability engineering is now focused on one mission: building AI systems that don't just avoid crashes — they systematically find and capture revenue you're currently missing.
           </p>
 
           <p className="mt-4 text-gray-600">
-            His approach blends self-healing architecture, causal anomaly detection, and agentic automation that converts leads and accelerates onboarding — delivering measurable ROI in weeks, not months.
+            Most companies lose 15-30% of potential revenue to automation gaps they don't even know exist. We close those gaps with AI that pays for itself in 90 days.
           </p>
 
           <div className="mt-6">
             <Card>
-              <div className="italic text-gray-700">"We don't believe automation should just reduce toil — it should increase predictability and revenue." — Juan Petter</div>
+              <div className="italic text-gray-700">"Most companies lose 15-30% of potential revenue to automation gaps they don't even know exist. We close those gaps with AI that pays for itself in 90 days." — Juan Petter</div>
             </Card>
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function Founder() {
         <div>
           <div className="bg-gradient-to-br from-blue-50 to-gray-100 p-8 rounded-xl">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold">Proven Outcomes</h3>
+              <h3 className="text-2xl font-bold">Proven Results for Growth-Focused Companies</h3>
             </div>
 
             <div className="space-y-4">
@@ -39,7 +39,7 @@ export default function Founder() {
                 </div>
                 <div>
                   <div className="font-bold">8x ROAS</div>
-                  <div className="text-sm text-gray-600">Omnichannel revenue experiments</div>
+                  <div className="text-sm text-gray-600">From scattered experiments to predictable revenue streams</div>
                 </div>
               </div>
 
@@ -49,7 +49,7 @@ export default function Founder() {
                 </div>
                 <div>
                   <div className="font-bold">80% Automation</div>
-                  <div className="text-sm text-gray-600">Reduction in manual follow-up</div>
+                  <div className="text-sm text-gray-600">Reclaim 16+ hours/week from manual tasks</div>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@ export default function Founder() {
                 </div>
                 <div>
                   <div className="font-bold">99.9% Uptime</div>
-                  <div className="text-sm text-gray-600">Enterprise reliability at scale</div>
+                  <div className="text-sm text-gray-600">Enterprise reliability without enterprise complexity</div>
                 </div>
               </div>
 
@@ -69,7 +69,7 @@ export default function Founder() {
                 </div>
                 <div>
                   <div className="font-bold">3x Acceleration</div>
-                  <div className="text-sm text-gray-600">Client onboarding speed</div>
+                  <div className="text-sm text-gray-600">Go from idea to revenue in weeks, not quarters</div>
                 </div>
               </div>
             </div>
