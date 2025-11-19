@@ -4,19 +4,18 @@ import { ReactNode } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://lgcylabs.vercel.app";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
 
 export const metadata: Metadata = {
-  title: "LGCY Labs — Agentic Reliability & Revenue AI",
-  description:
-    "LGCY Labs crafts agentic AI systems that fuse enterprise reliability engineering with revenue-driven automation. Founded by Juan Petter.",
+  title: "LGCY Labs — Stop Revenue Leaks with Self-Healing AI Systems",
+  description: "Enterprise-grade AI systems that prevent revenue leaks and generate predictable growth. Fortune 500 reliability meets revenue-focused automation.",
   metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: "LGCY Labs — Agentic Reliability & Revenue AI",
-    description:
-      "Agentic AI systems that combine reliability engineering with revenue-driving automation.",
+    title: "LGCY Labs — Stop Revenue Leaks with Self-Healing AI Systems",
+    description: "Enterprise-grade AI systems that prevent revenue leaks and generate predictable growth.",
     url: SITE_URL,
     siteName: "LGCY Labs",
     images: ["/images/og-image.svg"],
@@ -25,9 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "LGCY Labs — Agentic Reliability & Revenue AI",
-    description:
-      "Agentic AI systems that combine reliability engineering with revenue-driving automation.",
+    title: "LGCY Labs — Stop Revenue Leaks with Self-Healing AI Systems",
+    description: "Enterprise-grade AI systems that prevent revenue leaks and generate predictable growth.",
     images: ["/images/og-image.svg"],
   },
 };
@@ -50,6 +48,7 @@ function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config',
         <Navbar />
         <main className="min-h-[70vh]">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

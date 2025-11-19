@@ -10,6 +10,20 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{type: string, message: string} | null>(null);
 
+  const trackConversion = (type: string) => {
+    // Track in Vercel Analytics
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', type, {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        value: 1
+      });
+    }
+    
+    // Log for debugging
+    console.log(`📈 Conversion tracked: ${type}`);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -27,9 +41,12 @@ export default function Contact() {
       const result = await response.json();
 
       if (response.ok) {
+        // Track successful conversion
+        trackConversion('contact_form_success');
         setSubmitStatus({ type: 'success', message: 'Message sent successfully! I will get back to you within 24 hours.' });
         setFormData({ name: '', email: '', message: '' });
       } else {
+        trackConversion('contact_form_error');
         throw new Error(result.error || 'Failed to send message');
       }
     } catch (error) {
@@ -38,6 +55,11 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const trackCalendlyClick = () => {
+    trackConversion('calendly_booking_click');
+    window.open('https://calendly.com/petter2025us/30min', '_blank');
   };
 
   return (
@@ -59,7 +81,7 @@ export default function Contact() {
             Get a customized 30-minute session where we'll identify your top 3 revenue leaks and map your quickest path to AI automation.
           </p>
           <button 
-            onClick={() => window.open('https://calendly.com/petter2025us/30min', '_blank')}
+            onClick={trackCalendlyClick}
             className="bg-green-600 text-white py-4 px-8 rounded-lg font-semibold hover:bg-green-700 transition-colors text-lg shadow-lg hover:shadow-xl"
           >
             Book Your Free Session Now
@@ -134,6 +156,7 @@ export default function Contact() {
               type="submit"
               disabled={isSubmitting}
               className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={() => trackConversion('contact_form_submit')}
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
@@ -145,6 +168,7 @@ export default function Contact() {
           <a 
             href="mailto:petter2025us@outlook.com"
             className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+            onClick={() => trackConversion('email_click')}
           >
             petter2025us@outlook.com
           </a>
