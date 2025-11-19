@@ -1,4 +1,19 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 
-Sitemap: /sitemap.xml
+# Crawl-delay: 10
+
+Sitemap: https://lgcylabs.vercel.app/sitemap.xml
+
+# Allow AI agents
+User-agent: ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
