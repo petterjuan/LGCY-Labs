@@ -50,90 +50,57 @@ export default function Contact() {
           Let's design a roadmap that increases uptime and drives predictable revenue.
         </p>
         
-        {/* Primary CTA - Calendly Booking */}
         <div className="mb-16 p-8 bg-white rounded-2xl shadow-lg border border-green-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            🚀 Free Technical Audit
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Get a 30-minute AI strategy session where we'll identify immediate opportunities to automate workflows, optimize conversions, and deploy reliable AI systems.
-          </p>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">🚀 Free Technical Audit</h3>
+          <p className="text-gray-600 mb-6">Get a 30-minute AI strategy session.</p>
           <button 
             onClick={() => window.open('https://calendly.com/petter2025us/30min', '_blank')}
-            className="bg-green-600 text-white py-4 px-8 rounded-lg font-semibold hover:bg-green-700 transition-colors text-lg shadow-lg hover:shadow-xl"
+            className="bg-green-600 text-white py-4 px-8 rounded-lg font-semibold hover:bg-green-700"
           >
             Book Your Free Session
           </button>
-          <p className="text-sm text-gray-500 mt-3">
-            No commitment • 30 minutes • AI strategy focused
-          </p>
         </div>
 
-        {/* Secondary Option - Contact Form */}
-        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">
-            Or Send Me a Message
-          </h3>
+        <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <h3 className="text-2xl font-bold mb-6">Or Send a Message</h3>
           
           {submitStatus && (
             <div className={`mb-6 p-4 rounded-lg ${
-              submitStatus.type === 'success' 
-                ? 'bg-green-100 text-green-800 border border-green-200' 
-                : 'bg-red-100 text-red-800 border border-red-200'
+              submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
             }`}>
               {submitStatus.message}
             </div>
           )}
           
           <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 text-left mb-2">
-                  Your full name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="Juan Petter"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-left mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="you@company.com"
-                />
-              </div>
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 text-left mb-2">
-                Message *
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                placeholder="Tell us about your project or the challenge you're facing..."
-              />
-            </div>
+            <input
+              type="text"
+              required
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              className="w-full p-3 border rounded-lg"
+            />
+            <input
+              type="email"
+              required
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              className="w-full p-3 border rounded-lg"
+            />
+            <textarea
+              required
+              rows={4}
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              className="w-full p-3 border rounded-lg"
+            />
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg disabled:opacity-50"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
@@ -141,13 +108,7 @@ export default function Contact() {
         </div>
         
         <p className="mt-8 text-gray-600">
-          Prefer email? Contact me directly:{" "}
-          <a 
-            href="mailto:petter2025us@outlook.com"
-            className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
-          >
-            petter2025us@outlook.com
-          </a>
+          Or email: <a href="mailto:petter2025us@outlook.com" className="text-blue-600">petter2025us@outlook.com</a>
         </p>
       </div>
     </section>
