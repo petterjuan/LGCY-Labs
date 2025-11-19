@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className="max-w-7xl mx-auto px-6 -mt-20">
+      <div className="max-w-7xl mx-auto px-6">
         <Founder />
         <Trust />
         <Solutions />

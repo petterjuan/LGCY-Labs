@@ -6,26 +6,32 @@
     </linearGradient>
   </defs>
   
+  <!-- Background gradient -->
   <rect width="1200" height="420" fill="url(#g)"/>
   
-  <!-- Main content card -->
-  <g transform="translate(80,40)" fill="#fff" opacity="0.95">
-    <rect x="0" y="0" width="460" height="160" rx="14" fill="url(#g)"/>
+  <!-- Main centered content -->
+  <g transform="translate(600, 160)" text-anchor="middle">
+    <!-- Main title -->
+    <text y="-80" font-family="Inter, sans-serif" font-size="48" font-weight="bold" fill="#fff">LGCY Labs</text>
+    
+    <!-- Subtitle -->
+    <text y="-30" font-family="Inter, sans-serif" font-size="22" fill="#e6f0ff" opacity="0.9">Agentic reliability &amp; revenue AI</text>
   </g>
   
-  <!-- Cleaner info panels without dark backgrounds -->
-  <g transform="translate(80,220)">
-    <rect x="0" y="0" width="280" height="120" rx="10" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
-    <rect x="310" y="0" width="360" height="120" rx="10" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+  <!-- Centered feature cards -->
+  <g transform="translate(600, 300)" text-anchor="middle">
+    <!-- Left feature card -->
+    <g transform="translate(-200, 0)">
+      <rect x="-140" y="-40" width="280" height="80" rx="12" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+      <text y="-15" font-family="Inter, sans-serif" font-size="18" fill="#c7d2fe" font-weight="600">Self-Healing Systems</text>
+      <text y="10" font-family="Inter, sans-serif" font-size="14" fill="#e6f0ff" opacity="0.8">99.9% Uptime</text>
+    </g>
+    
+    <!-- Right feature card -->
+    <g transform="translate(200, 0)">
+      <rect x="-140" y="-40" width="280" height="80" rx="12" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-opacity="0.3" stroke-width="1"/>
+      <text y="-15" font-family="Inter, sans-serif" font-size="18" fill="#c7d2fe" font-weight="600">Agentic Reliability Framework</text>
+      <text y="10" font-family="Inter, sans-serif" font-size="14" fill="#e6f2ff" opacity="0.8">Revenue-Focused AI</text>
+    </g>
   </g>
-  
-  <!-- Text content -->
-  <text x="600" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="42" font-weight="bold" fill="#fff">LGCY Labs</text>
-  <text x="600" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" fill="#e6f0ff">Agentic reliability &amp; revenue AI</text>
-  
-  <text x="210" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#c7d2fe" font-weight="600">Self-Healing Systems</text>
-  <text x="210" y="310" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#e6f0ff" opacity="0.8">99.9% Uptime</text>
-  
-  <text x="490" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#c7d2fe" font-weight="600">Agentic Reliability Framework</text>
-  <text x="490" y="310" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#e6f0ff" opacity="0.8">Revenue-Focused AI</text>
 </svg>

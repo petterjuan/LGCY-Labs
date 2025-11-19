@@ -32,7 +32,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }} viewport={{ once: true }}>
-          <div className="mt-16 flex justify-center">
+          <div className="mt-24 flex justify-center">
             <div className="w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20">
               <Image
                 src="/images/hero.svg"
