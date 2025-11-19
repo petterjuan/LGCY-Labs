@@ -1,99 +1,154 @@
-"use client";
-
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 
 export default function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("sending");
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      if (res.ok) {
-        setStatus("success");
-        setName("");
-        setEmail("");
-        setMessage("");
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: 'Message sent successfully! I\\'ll get back to you within 24 hours.' });
+        setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus("error");
+        throw new Error(result.error || 'Failed to send message');
       }
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again or email directly.' });
+    } finally {
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
-    <section id="contact" className="py-16 bg-gray-100">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center">Ready to Build Revenue-Generating AI Systems?</h2>
-        <p className="mt-4 text-gray-600 text-center">Let's design a roadmap that increases uptime and drives predictable revenue.</p>
+    <section id="contact" className="py-20 bg-gray-50">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          Ready to Build Revenue-Generating AI Systems?
+        </h2>
+        <p className="text-xl text-gray-600 mb-12">
+          Let's design a roadmap that increases uptime and drives predictable revenue.
+        </p>
+        
+        {/* Primary CTA - Calendly Booking */}
+        <div className="mb-16 p-8 bg-white rounded-2xl shadow-lg border border-green-100">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            🚀 Free Technical Audit
+          </h3>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Get a 30-minute AI strategy session where we'll identify immediate opportunities to automate workflows, optimize conversions, and deploy reliable AI systems.
+          </p>
+          <button 
+            onClick={() => window.open('https://calendly.com/petter2025us/30min', '_blank')}
+            className="bg-green-600 text-white py-4 px-8 rounded-lg font-semibold hover:bg-green-700 transition-colors text-lg shadow-lg hover:shadow-xl"
+          >
+            Book Your Free Session
+          </button>
+          <p className="text-sm text-gray-500 mt-3">
+            No commitment • 30 minutes • AI strategy focused
+          </p>
+        </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 bg-white p-8 rounded-xl shadow-md border border-gray-100">
-          <div className="grid gap-5">
-            <label className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-800 mb-2">Name</span>
-              <input
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="Your full name"
-              />
-            </label>
-
-            <label className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-800 mb-2">Email</span>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                placeholder="you@company.com"
-              />
-            </label>
-
-            <label className="flex flex-col">
-              <span className="text-sm font-semibold text-gray-800 mb-2">Message</span>
-              <textarea
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="p-3 border border-gray-300 rounded-lg h-40 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
-                placeholder="Tell us about your project or the challenge you're facing"
-              />
-            </label>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-              <button
-                type="submit"
-                disabled={status === "sending"}
-                className="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg disabled:opacity-60"
-              >
-                {status === "sending" ? "Sending..." : "Send Message"}
-              </button>
-
-              <a
-                className="text-sm text-primary hover:text-blue-700 font-medium underline"
-                href="mailto:juan@lgcylabs.com"
-              >
-                Or email Juan directly
-              </a>
+        {/* Secondary Option - Contact Form */}
+        <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+            Or Send Me a Message
+          </h3>
+          
+          {submitStatus && (
+            <div className={`mb-6 p-4 rounded-lg ${
+              submitStatus.type === 'success' 
+                ? 'bg-green-100 text-green-800 border border-green-200' 
+                : 'bg-red-100 text-red-800 border border-red-200'
+            }`}>
+              {submitStatus.message}
             </div>
-
-            {status === "success" && <p className="text-sm text-green-600 font-medium">✓ Thanks — we'll be in touch soon.</p>}
-            {status === "error" && <p className="text-sm text-red-600 font-medium">✗ Something went wrong. Please try again or email juan@lgcylabs.com.</p>}
-          </div>
-        </form>
+          )}
+          
+          <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 text-left mb-2">
+                  Your full name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Juan Petter"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 text-left mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="you@company.com"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 text-left mb-2">
+                Message *
+              </label>
+              <textarea
+                id="message"
+                required
+                rows={4}
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                placeholder="Tell us about your project or the challenge you're facing..."
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
+        
+        <p className="mt-8 text-gray-600">
+          Prefer email? Contact me directly:{" "}
+          <a 
+            href="mailto:petter2025us@outlook.com"
+            className="text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+          >
+            petter2025us@outlook.com
+          </a>
+        </p>
       </div>
     </section>
   );
