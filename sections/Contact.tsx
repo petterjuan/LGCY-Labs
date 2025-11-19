@@ -8,9 +8,9 @@ export default function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitStatus, setSubmitStatus] = useState<{type: string, message: string} | null>(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
@@ -27,14 +27,14 @@ export default function Contact() {
       const result = await response.json();
 
       if (response.ok) {
-        setSubmitStatus({ type: 'success', message: 'Message sent successfully! I\\'ll get back to you within 24 hours.' });
+        setSubmitStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
         setFormData({ name: '', email: '', message: '' });
       } else {
         throw new Error(result.error || 'Failed to send message');
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again or email directly.' });
+      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again.' });
     } finally {
       setIsSubmitting(false);
     }
