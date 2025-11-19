@@ -1,15 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420">
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="0" x2="1">
-      <stop offset="0" stop-color="#1e40af" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#3b82f6" stop-opacity="0.85"/>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="420" fill="#0f172a"/>
+  
+  <rect width="1200" height="420" fill="url(#g)"/>
+  
+  <!-- Main content card -->
   <g transform="translate(80,40)" fill="#fff" opacity="0.95">
     <rect x="0" y="0" width="460" height="160" rx="14" fill="url(#g)"/>
-    <rect x="0" y="190" width="280" height="120" rx="10" fill="#fff" opacity="0.06"/>
-    <rect x="310" y="190" width="360" height="120" rx="10" fill="#fff" opacity="0.06"/>
   </g>
-  <text x="120" y="260" fill="#c7d2fe" font-family="sans-serif" font-size="28">Agentic Reliability Framework</text>
+  
+  <!-- Cleaner info panels without dark backgrounds -->
+  <g transform="translate(80,220)">
+    <rect x="0" y="0" width="280" height="120" rx="10" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+    <rect x="310" y="0" width="360" height="120" rx="10" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-opacity="0.2" stroke-width="1"/>
+  </g>
+  
+  <!-- Text content -->
+  <text x="600" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="42" font-weight="bold" fill="#fff">LGCY Labs</text>
+  <text x="600" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" fill="#e6f0ff">Agentic reliability &amp; revenue AI</text>
+  
+  <text x="210" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#c7d2fe" font-weight="600">Self-Healing Systems</text>
+  <text x="210" y="310" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#e6f0ff" opacity="0.8">99.9% Uptime</text>
+  
+  <text x="490" y="280" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#c7d2fe" font-weight="600">Agentic Reliability Framework</text>
+  <text x="490" y="310" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#e6f0ff" opacity="0.8">Revenue-Focused AI</text>
 </svg>
