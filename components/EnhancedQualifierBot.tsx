@@ -216,7 +216,7 @@ export default function EnhancedQualifierBot() {
         {showEmailCapture && !capturedLead && (
           <div className="flex justify-start">
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 max-w-[80%]">
-              <h4 className="font-semibold text-yellow-800 mb-2">Get Custom Recommendations</h4>
+              <h4 className="font-semibold text-yellow-800 mb-2">Get $50K Revenue Recovery Blueprint</h4>
               <form onSubmit={handleLeadCapture} className="space-y-3">
                 <input
                   type="email"
@@ -237,7 +237,7 @@ export default function EnhancedQualifierBot() {
                   type="submit"
                   className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full"
                 >
-                  Get Free Technical Audit
+                  Get Priority Access → Limited Spots
                 </button>
               </form>
             </div>
