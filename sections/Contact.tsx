@@ -1,4 +1,4 @@
-import QualifierBot from '../components/QualifierBot';
+import EnhancedQualifierBot from '../components/EnhancedQualifierBot';
 
 export default function Contact() {
   return (
@@ -13,7 +13,7 @@ export default function Contact() {
         </p>
       </div>
       
-      <QualifierBot />
+      <EnhancedQualifierBot />
       
       <div className="text-center mt-8 text-sm text-gray-500">
         <p>Prefer email? Contact us directly at petter2025us@outlook.com</p>

@@ -14,7 +14,7 @@ export default function Products() {
         <Card>
           <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3 rounded mb-4">
             <h3 className="text-xl font-bold">AI E-commerce Boilerplate</h3>
-            <div className="text-2xl font-bold mt-2">$299</div>
+            <div className="text-2xl font-bold mt-2">$1,997</div>
           </div>
           <p className="text-gray-600">Complete AI storefront with recommendations, automated inventory & built-in funnels.</p>
         </Card>
@@ -22,7 +22,7 @@ export default function Products() {
         <Card>
           <div className="bg-gradient-to-r from-green-500 to-teal-600 text-white p-3 rounded mb-4">
             <h3 className="text-xl font-bold">AI Workflow Automation</h3>
-            <div className="text-lg font-bold mt-2">Agencies & Enterprises</div>
+            <div className="text-lg font-bold mt-2">$4,997</div>
           </div>
           <p className="text-gray-600">Automate complex workflows and eliminate manual bottlenecks.</p>
         </Card>
@@ -30,7 +30,7 @@ export default function Products() {
         <Card>
           <div className="bg-gradient-to-r from-purple-500 to-pink-600 text-white p-3 rounded mb-4">
             <h3 className="text-xl font-bold">E-commerce Intelligence</h3>
-            <div className="text-lg font-bold mt-2">Analytics Dashboard</div>
+            <div className="text-lg font-bold mt-2">$9,997</div>
           </div>
           <p className="text-gray-600">Predict trends, optimize pricing, and maximize LTV with predictive analytics.</p>
         </Card>

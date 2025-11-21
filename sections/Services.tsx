@@ -14,8 +14,8 @@ export default function Services() {
         <Card>
           <div className="text-center mb-4">
             <h3 className="text-2xl font-bold">Technical Growth Audit</h3>
-            <div className="text-2xl font-bold text-primary mt-3">$2,500</div>
-            <div className="text-sm text-green-600 font-semibold mt-1">Identifies $10K-$50K in immediate revenue opportunities</div>
+            <div className="text-2xl font-bold text-primary mt-3">$7,500</div>
+            <div className="text-sm text-green-600 font-semibold mt-1">Identifies $50K-$250K in immediate revenue opportunities</div>
             <div className="text-sm text-gray-600 mt-1">1-week comprehensive analysis</div>
           </div>
           <ul className="text-gray-700 space-y-2 text-sm">
@@ -30,8 +30,8 @@ export default function Services() {
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-blue-900 px-4 py-1 rounded-full font-bold text-sm">MOST POPULAR</div>
           <div className="text-center mb-4 pt-4">
             <h3 className="text-2xl font-bold">Revenue-Generating AI System</h3>
-            <div className="text-3xl font-bold text-primary mt-3">$20,000</div>
-            <div className="text-sm text-green-600 font-semibold mt-1">Typically delivers $100K+ ROI within 6 months</div>
+            <div className="text-3xl font-bold text-primary mt-3">$47,500</div>
+            <div className="text-sm text-green-600 font-semibold mt-1">Typically delivers $250K+ ROI within 6 months</div>
             <div className="text-sm text-gray-600 mt-1">4–6 week implementation</div>
           </div>
           <ul className="text-gray-700 space-y-2 text-sm">
@@ -45,7 +45,7 @@ export default function Services() {
         <Card>
           <div className="text-center mb-4">
             <h3 className="text-2xl font-bold">Fractional AI Leadership</h3>
-            <div className="text-2xl font-bold text-primary mt-3">$5,000<span className="text-lg">/mo</span></div>
+            <div className="text-2xl font-bold text-primary mt-3">$12,500<span className="text-lg">/mo</span></div>
             <div className="text-sm text-green-600 font-semibold mt-1">Like having a world-class AI engineer on retainer</div>
             <div className="text-sm text-gray-600 mt-1">Ongoing strategic guidance</div>
           </div>
