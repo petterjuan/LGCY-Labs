@@ -5,12 +5,18 @@ const hf = new HfInference(process.env.HUGGINGFACE_HUB_TOKEN);
 
 // Enhanced number extraction for revenue quantification
 const extractNumbers = (text: string) => {
-  const dollarMatch = text.match(/\$?(\d+[,.]?\d*)[kK]?\b/);
+  // Enhanced pattern matching for various number formats
+  const dollarMatch = text.match(/\$?(\d+[,.]?\d*)\s*([kKmM])?\b/);
   const percentMatch = text.match(/(\d+[.,]\d+)%|(\d+)%\s*uptime|uptime\s*of\s*(\d+[.,]\d+)%/);
-  const uptimeMatch = text.match(/(\d+[.,]\d+)%\s*uptime|uptime\s*of\s*(\d+[.,]\d+)%/);
   
-  const dollarAmount = dollarMatch ? 
-    parseInt(dollarMatch[1].replace(/[,.]/g, '')) * (text.toLowerCase().includes('k') ? 1000 : 1) : null;
+  let dollarAmount = null;
+  if (dollarMatch) {
+    const baseAmount = parseInt(dollarMatch[1].replace(/[,.]/g, ''));
+    const multiplier = dollarMatch[2] ? 
+      (dollarMatch[2].toLowerCase() === 'k' ? 1000 : 
+       dollarMatch[2].toLowerCase() === 'm' ? 1000000 : 1) : 1;
+    dollarAmount = baseAmount * multiplier;
+  }
   
   let percentAmount = null;
   if (percentMatch) {
@@ -48,11 +54,12 @@ const getConversationContext = (conversation: string[], lastUserMessage: string)
     dollarAmount,
     percentAmount,
     hasNumbers: !!(dollarAmount || percentAmount),
-    isUptimeContext: lowerFullText.includes('uptime') && percentAmount
+    isUptimeContext: lowerFullText.includes('uptime') && percentAmount,
+    isLargeEnterprise: dollarAmount && dollarAmount >= 100000 // $100K+ indicates enterprise scale
   };
 };
 
-// Enhanced fallback responses with enterprise intelligence
+// Enhanced fallback responses with proper number handling
 const getIntelligentFallback = (lastUserMessage: string, conversation: string[]) => {
   const context = getConversationContext(conversation, lastUserMessage);
   const lowerMessage = lastUserMessage.toLowerCase();
@@ -61,12 +68,18 @@ const getIntelligentFallback = (lastUserMessage: string, conversation: string[])
   if (context.hasEnterpriseContext && context.hasNumbers) {
     if (context.dollarAmount && context.percentAmount && context.isUptimeContext) {
       const annualImpact = context.dollarAmount * 12;
-      const uptimeGap = 99.99 - context.percentAmount; // Calculate uptime improvement needed
+      const uptimeGap = 99.99 - context.percentAmount;
       
       return `At $${context.dollarAmount.toLocaleString()} monthly impact from ${context.percentAmount}% uptime (needing 99.99%), that's $${annualImpact.toLocaleString()} annually in failed transactions. Our $47,500 Enterprise AI System delivers 99.9% uptime guarantees and typically reduces transaction failures by 80-90%. What specific financial systems are affected?`;
     } else if (context.dollarAmount && context.hasEnterpriseContext) {
       const annualImpact = context.dollarAmount * 12;
-      return `At $${context.dollarAmount.toLocaleString()} monthly impact ($${annualImpact.toLocaleString()} annually), our $47,500 Enterprise AI System is designed for Fortune 500 reliability with 99.9% uptime guarantees. What specific systems are causing the reliability issues?`;
+      
+      // Enhanced messaging based on scale
+      if (context.isLargeEnterprise) {
+        return `At $${context.dollarAmount.toLocaleString()} monthly impact ($${annualImpact.toLocaleString()} annually), this is a significant enterprise-level challenge. Our $47,500 Enterprise AI System is designed for Fortune 500 reliability with 99.9% uptime guarantees. What specific systems are causing these reliability issues?`;
+      } else {
+        return `At $${context.dollarAmount.toLocaleString()} monthly impact ($${annualImpact.toLocaleString()} annually), our $47,500 Enterprise AI System is designed for Fortune 500 reliability with 99.9% uptime guarantees. What specific systems are causing the reliability issues?`;
+      }
     }
   }
   
