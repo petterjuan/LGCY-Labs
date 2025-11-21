@@ -3,34 +3,72 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const hf = new HfInference(process.env.HUGGINGFACE_HUB_TOKEN);
 
+// Enhanced number extraction for revenue quantification
+const extractNumbers = (text: string) => {
+  const dollarMatch = text.match(/\$?(\d+[,.]?\d*)[kK]?\b/);
+  const percentMatch = text.match(/(\d+)%|(\d+)\s*percent/);
+  
+  const dollarAmount = dollarMatch ? 
+    parseInt(dollarMatch[1].replace(/[,.]/g, '')) * (text.toLowerCase().includes('k') ? 1000 : 1) : null;
+  const percentAmount = percentMatch ? parseInt(percentMatch[1] || percentMatch[2]) : null;
+  
+  return { dollarAmount, percentAmount };
+};
+
 // Intelligent prompt engineering for revenue-focused qualification
 const createIntelligentPrompt = (conversation: string[], lastUserMessage: string) => {
   const fullConversation = conversation.map(m => `${m.role}: ${m.content}`).join('\n');
   
+  // Enhanced context detection with number recognition
+  const currentNumbers = extractNumbers(lastUserMessage);
+  const historyNumbers = extractNumbers(fullConversation);
+  
   // Detect context and create targeted response
   const lowerMessage = lastUserMessage.toLowerCase();
   
+  // Enhanced cart abandonment with number processing
   if (lowerMessage.includes('cart') || lowerMessage.includes('abandonment') || lowerMessage.includes('revenue loss')) {
+    let analysis = "The user is experiencing cart abandonment/revenue leakage issues.";
+    let strategy = "1. Ask quantifying questions to understand scale\n2. Identify specific pain points\n3. Position relevant solutions\n4. Move toward technical audit";
+    let calculations = "";
+    
+    // If numbers are provided, calculate business impact
+    if (currentNumbers.dollarAmount || historyNumbers.dollarAmount) {
+      const amount = currentNumbers.dollarAmount || historyNumbers.dollarAmount;
+      const percent = currentNumbers.percentAmount || historyNumbers.percentAmount;
+      
+      analysis = "The user provided specific revenue numbers for cart abandonment - this is a qualified lead.";
+      strategy = "1. Calculate and acknowledge the business impact\n2. Position ROI-based solution\n3. Ask about platform specifics\n4. Move toward $47,500 system";
+      
+      if (amount && percent) {
+        calculations = `\nCALCULATIONS:
+- Monthly loss: $${amount.toLocaleString()}
+- Current recovery: ${percent}% = $${Math.round(amount * percent / 100).toLocaleString()}
+- Unrecovered: $${Math.round(amount * (1 - percent / 100)).toLocaleString()} monthly
+- Annual opportunity: $${Math.round(amount * 12 * (1 - percent / 100)).toLocaleString()}
+- Our solution (15-30% recovery): $${Math.round(amount * 0.15).toLocaleString()} - $${Math.round(amount * 0.30).toLocaleString()} additional monthly`;
+      } else if (amount) {
+        calculations = `\nCALCULATIONS:
+- Monthly loss: $${amount.toLocaleString()}
+- Annual impact: $${(amount * 12).toLocaleString()}
+- Typical recovery: $${Math.round(amount * 0.15).toLocaleString()} - $${Math.round(amount * 0.30).toLocaleString()} monthly`;
+      }
+    }
+
     return `You are an expert AI sales qualifier for LGCY Labs, specializing in revenue recovery and e-commerce optimization.
 
 CONVERSATION HISTORY:
 ${fullConversation}
 
 USER'S LAST MESSAGE: ${lastUserMessage}
+${calculations}
 
-ANALYSIS: The user is experiencing cart abandonment/revenue leakage issues.
+ANALYSIS: ${analysis}
 
 RESPONSE STRATEGY:
-1. Ask quantifying questions to understand scale
-2. Identify specific pain points  
-3. Position relevant solutions based on their answers
-4. Move toward technical audit offering
+${strategy}
 
-CURRENT SITUATION: User mentioned cart abandonment/revenue loss.
-
-INTELLIGENT RESPONSE: Based on the conversation about cart abandonment, I should ask: "How much monthly revenue are you losing from abandoned carts, and what's your current recovery rate?" This helps quantify the problem and position our $47,500 Revenue-Generating AI System that typically recovers 15-30% of lost revenue.
-
-Your response should be helpful, curious, and move toward quantifying the opportunity.`;
+INTELLIGENT RESPONSE: Based on the conversation about cart abandonment${calculations ? ' with specific numbers provided' : ''}, respond with a calculated, ROI-focused message that positions our $47,500 Revenue-Generating AI System and asks about their e-commerce platform.`;
   }
 
   if (lowerMessage.includes('workflow') || lowerMessage.includes('inefficient') || lowerMessage.includes('manual')) {
@@ -109,12 +147,19 @@ export async function POST(req: NextRequest) {
       async start(controller) {
         try {
           if (!hf) {
-            // Fallback intelligent responses
+            // Enhanced fallback intelligent responses with number recognition
+            const numbers = extractNumbers(lastUserMessage);
             const lowerMessage = lastUserMessage.toLowerCase();
-            let intelligentResponse = "I'd love to help with your business challenges. What are you working on?";
+            let intelligentResponse = "I'd love to help with your business challenges. What's the specific impact you're seeing?";
             
             if (lowerMessage.includes('cart') || lowerMessage.includes('abandonment')) {
-              intelligentResponse = "I understand you're dealing with cart abandonment. How much monthly revenue are you losing from abandoned carts, and what's your current recovery rate?";
+              if (numbers.dollarAmount && numbers.percentAmount) {
+                const monthlyRecovery = Math.round(numbers.dollarAmount * numbers.percentAmount / 100);
+                const monthlyLoss = Math.round(numbers.dollarAmount * (1 - numbers.percentAmount / 100));
+                intelligentResponse = `At $${numbers.dollarAmount.toLocaleString()} monthly with ${numbers.percentAmount}% recovery, you're losing $${monthlyLoss.toLocaleString()} monthly ($${(monthlyLoss * 12).toLocaleString()} annually). Our $47,500 system typically recovers 15-30% - that's $${Math.round(numbers.dollarAmount * 0.15).toLocaleString()}-$${Math.round(numbers.dollarAmount * 0.30).toLocaleString()} additional monthly. What e-commerce platform are you using?`;
+              } else {
+                intelligentResponse = "I understand you're dealing with cart abandonment. How much monthly revenue are you losing from abandoned carts, and what's your current recovery rate?";
+              }
             } else if (lowerMessage.includes('workflow') || lowerMessage.includes('inefficient')) {
               intelligentResponse = "Workflow inefficiencies can be costly. How many hours per week is your team spending on manual processes that could be automated?";
             } else if (lowerMessage.includes('enterprise') || lowerMessage.includes('scale')) {
@@ -129,7 +174,7 @@ export async function POST(req: NextRequest) {
           const response = await hf.textGenerationStream({
             model: "microsoft/DialoGPT-large",
             inputs: prompt,
-            parameters: { max_new_tokens: 100, temperature: 0.7 }
+            parameters: { max_new_tokens: 150, temperature: 0.7 }
           });
 
           for await (const chunk of response) {
@@ -140,12 +185,18 @@ export async function POST(req: NextRequest) {
           controller.close();
 
         } catch (error) {
-          // Intelligent fallback responses
+          // Enhanced fallback responses with number recognition
+          const numbers = extractNumbers(lastUserMessage);
           const lowerMessage = lastUserMessage.toLowerCase();
           let fallbackResponse = "I'd love to help with your business challenges. What's the specific impact you're seeing?";
           
           if (lowerMessage.includes('cart') || lowerMessage.includes('abandonment')) {
-            fallbackResponse = "Cart abandonment is a common revenue leak. How much are you losing monthly, and what recovery systems do you have in place?";
+            if (numbers.dollarAmount && numbers.percentAmount) {
+              const monthlyLoss = Math.round(numbers.dollarAmount * (1 - numbers.percentAmount / 100));
+              fallbackResponse = `Cart abandonment is costing you $${monthlyLoss.toLocaleString()} monthly. Our $47,500 system typically recovers 15-30% of lost revenue. What platform are you using?`;
+            } else {
+              fallbackResponse = "Cart abandonment is a common revenue leak. How much are you losing monthly, and what recovery systems do you have in place?";
+            }
           } else if (lowerMessage.includes('workflow') || lowerMessage.includes('manual')) {
             fallbackResponse = "Manual workflows cost businesses significantly. How many hours weekly does your team spend on repetitive tasks?";
           }
