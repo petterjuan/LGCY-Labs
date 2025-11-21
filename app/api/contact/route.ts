@@ -7,7 +7,7 @@ class FreeAILeadScorer {
     if (process.env.HUGGINGFACE_HUB_TOKEN) {
       import('@huggingface/inference').then((module) => {
         this.hf = new module.HfInference(process.env.HUGGINGFACE_HUB_TOKEN);
-      }).catch(error => {
+      }).catch((error: any) => {
         console.log('Hugging Face import failed:', error.message);
       });
     }
@@ -49,8 +49,8 @@ class FreeAILeadScorer {
           return { ...analysis, aiEnabled: true, aiProvider: 'huggingface' };
         }
       }
-    } catch (error) {
-      console.log('❌ [API] Hugging Face Error:', error.message);
+    } catch (error: any) {
+      console.log('❌ [API] Hugging Face Error:', error instanceof Error ? error.message : String(error));
     }
     return null;
   }
@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
       analysis 
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('💥 [API] Contact Form Error:', error);
     return NextResponse.json(
       { success: false, message: 'Failed to process lead' },

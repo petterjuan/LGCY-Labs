@@ -75,7 +75,7 @@ export default function QualifierBot() {
       setMessages(prev => [...prev, assistantMessageObj]);
 
       while (true) {
-        const { done, value } = await reader.read();
+        const { done, value } = await reader!.read();
         if (done) break;
 
         const text = new TextDecoder().decode(value);

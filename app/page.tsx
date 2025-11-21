@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect } from 'react';
 import Hero from "../components/Hero";
 import Founder from "../sections/Founder";
 import Solutions from "../sections/Solutions";
@@ -7,6 +10,11 @@ import Trust from "../sections/Trust";
 import Contact from "../sections/Contact";
 
 export default function Home() {
+  useEffect(() => {
+    // Scroll to top on initial page load
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Hero />
