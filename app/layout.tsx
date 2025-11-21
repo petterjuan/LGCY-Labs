@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollRestoration from "../components/ScrollRestoration";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -45,6 +46,7 @@ function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config',
           </>
         )}
 
+        <ScrollRestoration />
         <Navbar />
         <main className="min-h-[70vh]">{children}</main>
         <Footer />
