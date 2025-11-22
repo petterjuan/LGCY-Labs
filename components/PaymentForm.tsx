@@ -1,33 +1,60 @@
 'use client';
 
 import { useState } from 'react';
-import PaymentButton from './PaymentButton';
 import MultiPaymentOptions from './MultiPaymentOptions';
 
 export default function PaymentForm() {
   const [email, setEmail] = useState('');
   const [selectedService, setSelectedService] = useState('');
+  const [customAmount, setCustomAmount] = useState('');
   const [showPaymentOptions, setShowPaymentOptions] = useState(false);
+  const [useCustomAmount, setUseCustomAmount] = useState(false);
 
   const services = [
     { name: 'Technical Growth Audit', price: 7500 },
     { name: 'Revenue-Generating AI System', price: 47500 },
-    { name: 'AI E-commerce Boilerplate', price: 1997 }
+    { name: 'AI E-commerce Boilerplate', price: 1997 },
+    { name: 'custom', price: 0, label: 'Custom Amount' }
   ];
 
+  const getAmount = () => {
+    if (useCustomAmount && customAmount) {
+      return parseInt(customAmount) * 100; // Convert to cents
+    }
+    const service = services.find(s => s.name === selectedService);
+    return service ? service.price : 0;
+  };
+
+  const getServiceName = () => {
+    if (useCustomAmount) {
+      return `Custom Payment - $${customAmount}`;
+    }
+    return selectedService;
+  };
+
+  const handleServiceChange = (serviceName: string) => {
+    setSelectedService(serviceName);
+    setUseCustomAmount(serviceName === 'custom');
+    if (serviceName !== 'custom') {
+      setCustomAmount('');
+    }
+  };
+
   const handleProceedToPayment = () => {
-    if (email && selectedService) {
+    if (email && (selectedService || useCustomAmount)) {
       setShowPaymentOptions(true);
-      // Track payment initiation
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'begin_checkout', {
           currency: 'USD',
-          value: services.find(s => s.name === selectedService)?.price / 100,
-          items: [{ item_name: selectedService }]
+          value: getAmount() / 100,
+          items: [{ item_name: getServiceName() }]
         });
       }
     }
   };
+
+  const amount = getAmount();
+  const serviceName = getServiceName();
 
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg border border-gray-200">
@@ -51,36 +78,54 @@ export default function PaymentForm() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Select Service
+              Select Service or Custom Amount
             </label>
             <select
               value={selectedService}
-              onChange={(e) => setSelectedService(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={(e) => handleServiceChange(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-3"
               required
             >
               <option value="">Choose a service...</option>
               {services.map((service) => (
                 <option key={service.name} value={service.name}>
-                  {service.name} - ${service.price}
+                  {service.label || service.name} - {service.price > 0 ? `$${service.price}` : 'Enter custom amount'}
                 </option>
               ))}
             </select>
+
+            {useCustomAmount && (
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Custom Amount ($)
+                </label>
+                <input
+                  type="number"
+                  value={customAmount}
+                  onChange={(e) => setCustomAmount(e.target.value)}
+                  placeholder="Enter amount in dollars"
+                  min="1"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+                <p className="text-xs text-gray-500 mt-1">Enter the amount you'd like to pay</p>
+              </div>
+            )}
           </div>
 
-          {selectedService && email && (
+          {(selectedService || (useCustomAmount && customAmount)) && email && (
             <button
               onClick={handleProceedToPayment}
               className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
-              Proceed to Payment - ${services.find(s => s.name === selectedService)?.price}
+              Proceed to Payment - ${amount > 0 ? (amount / 100) : '0'}
             </button>
           )}
         </div>
       ) : (
         <MultiPaymentOptions
-          service={selectedService}
-          amount={services.find(s => s.name === selectedService)?.price || 0}
+          service={serviceName}
+          amount={amount}
           email={email}
         />
       )}

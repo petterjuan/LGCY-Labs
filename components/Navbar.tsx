@@ -10,6 +10,7 @@ export default function Navbar() {
     { href: "#solutions", label: "Solutions" },
     { href: "#products", label: "Products" },
     { href: "#services", label: "Services" },
+    { href: "/payments", label: "Payments" },
     { href: "#contact", label: "Contact" }
   ];
 
@@ -19,9 +20,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-md">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path d="M3 12h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 3v18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
             <Link href="/" className="font-semibold text-lg text-gray-900">
@@ -31,9 +31,15 @@ export default function Navbar() {
 
           <nav className="hidden md:flex items-center gap-8">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium">
-                {n.label}
-              </a>
+              n.href.startsWith('#') ? (
+                <a key={n.href} href={n.href} className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium">
+                  {n.label}
+                </a>
+              ) : (
+                <Link key={n.href} href={n.href} className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium">
+                  {n.label}
+                </Link>
+              )
             ))}
             <a
               href="#contact"
@@ -44,20 +50,12 @@ export default function Navbar() {
           </nav>
 
           <div className="md:hidden">
-            <button
-              aria-label="Toggle menu"
-              onClick={() => setOpen((s) => !s)}
-              className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
-            >
-              {open ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              )}
+            <button onClick={() => setOpen(!open)} className="p-2">
+              <div className="w-6 h-6 flex flex-col justify-between">
+                <span className={`w-full h-0.5 bg-gray-600 transition-all ${open ? 'rotate-45 translate-y-2.5' : ''}`}></span>
+                <span className={`w-full h-0.5 bg-gray-600 transition-all ${open ? 'opacity-0' : ''}`}></span>
+                <span className={`w-full h-0.5 bg-gray-600 transition-all ${open ? '-rotate-45 -translate-y-2.5' : ''}`}></span>
+              </div>
             </button>
           </div>
         </div>
@@ -66,9 +64,15 @@ export default function Navbar() {
           <div className="md:hidden pb-4">
             <div className="flex flex-col gap-3">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} className="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary rounded transition-colors font-medium">
-                  {n.label}
-                </a>
+                n.href.startsWith('#') ? (
+                  <a key={n.href} href={n.href} className="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary rounded transition-colors font-medium">
+                    {n.label}
+                  </a>
+                ) : (
+                  <Link key={n.href} href={n.href} className="block px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-primary rounded transition-colors font-medium">
+                    {n.label}
+                  </Link>
+                )
               ))}
               <a href="#contact" className="block px-3 py-2.5 bg-primary text-white rounded font-semibold hover:bg-blue-700 transition-colors">
                 Build With Us
