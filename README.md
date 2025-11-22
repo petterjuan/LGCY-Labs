@@ -39,7 +39,6 @@ graph TB
     style A fill:#e1f5fe
     style C fill:#f3e5f5
     style D fill:#e8f5e8
-
 🎯 Core Offerings
 📦 Digital Products (Instant Delivery)
 Product	Price	Target	Delivery	Features
@@ -53,6 +52,7 @@ Revenue-Generating AI System	$47,500	4-6 weeks	$250K+	Custom agents, 3-month sup
 Fractional AI Leadership	$12,500/mo	Ongoing	Strategic	Weekly sessions, architecture guidance
 💰 Payment Infrastructure
 🎯 Multi-Payment Gateway Architecture
+typescript
 // Core Payment Interface
 interface PaymentGateway {
   processPayment(amount: number, method: PaymentMethod): Promise<PaymentResult>;
@@ -68,7 +68,6 @@ enum PaymentMethod {
   GIFT_CARD = 'giftcard', // Amazon/Visa/Apple
   PAYPAL = 'paypal'     // PayPal.me links
 }
-
 🔧 Payment API Endpoints
 Endpoint	Method	Purpose	Response
 /api/payments/invoice	POST	Generate invoices	{invoiceId, amount, paymentMethods[]}
@@ -85,6 +84,7 @@ Mobile-Optimized Forms - Responsive payment experience
 
 🤖 AI-Powered Lead Qualification
 🧠 Intelligent Lead Scoring
+typescript
 class AILeadScorer {
   async scoreLead(leadData: LeadData): Promise<LeadScore> {
     const analysis = await this.analyzeWithAI(leadData);
@@ -96,7 +96,6 @@ class AILeadScorer {
     };
   }
 }
-
 📈 Lead Qualification Matrix
 Tier	Budget Range	Characteristics	AI Score	Recommended Service
 Starter	$1K-$5K	Solo founders, early stage	60-75	AI E-commerce Boilerplate
@@ -114,6 +113,7 @@ Auth	Supabase	Ready	User authentication & profiles
 Deployment	Vercel	-	Global CDN, edge functions
 Analytics	Google Analytics	4	Conversion tracking, revenue metrics
 Key Dependencies
+json
 {
   "dependencies": {
     "next": "16.0.3",
@@ -124,9 +124,8 @@ Key Dependencies
     "@vercel/analytics": "^1.5.0"
   }
 }
-
 📁 Project Structure
-
+text
 LGCY-Labs/
 ├── app/
 │   ├── audit/              # Dedicated audit landing page
@@ -148,7 +147,6 @@ LGCY-Labs/
 └── lib/
     └── payments/
         └── simple-payments.ts # Payment configuration
-
 🚀 Deployment & DevOps
 📡 CI/CD Pipeline
 Automatic Deployment on push to main branch
@@ -160,7 +158,7 @@ Environment Variables managed through Vercel dashboard
 Performance Monitoring with real-user metrics
 
 🔧 Environment Setup
-
+bash
 # Core Configuration
 NEXT_PUBLIC_SITE_URL=https://lgcylabs.vercel.app
 NEXT_PUBLIC_CONTACT_EMAIL=petter2025us@outlook.com
@@ -177,7 +175,6 @@ OPENAI_API_KEY=your_openai_key
 # Authentication
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
-
 🛡️ Production Readiness
 Area	Status	Tools	Monitoring
 Performance	✅ Optimized	Next.js 16, Turbopack	Vercel Analytics
