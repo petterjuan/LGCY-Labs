@@ -32,6 +32,13 @@ export default function PaymentForm() {
     return selectedService;
   };
 
+  const formatPrice = (price: number) => {
+    return (price / 100).toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });
+  };
+
   const handleServiceChange = (serviceName: string) => {
     setSelectedService(serviceName);
     setUseCustomAmount(serviceName === 'custom');
@@ -89,7 +96,7 @@ export default function PaymentForm() {
               <option value="">Choose a service...</option>
               {services.map((service) => (
                 <option key={service.name} value={service.name}>
-                  {service.label || service.name} - {service.price > 0 ? `$${service.price}` : 'Enter custom amount'}
+                  {service.label || service.name} - {service.price > 0 ? formatPrice(service.price) : 'Enter custom amount'}
                 </option>
               ))}
             </select>
@@ -118,7 +125,7 @@ export default function PaymentForm() {
               onClick={handleProceedToPayment}
               className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
-              Proceed to Payment - ${amount > 0 ? (amount / 100) : '0'}
+              Proceed to Payment - {formatPrice(amount)}
             </button>
           )}
         </div>
