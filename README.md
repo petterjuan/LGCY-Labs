@@ -1,26 +1,18 @@
-# 🚀 LGCY Labs - AI Revenue Infrastructure
+# 🚀 LGCY Labs — AI Revenue Infrastructure  
+Enterprise-Grade AI Systems | Zero Revenue Leaks | Production Reliability  
 
-<div align="center">
+Built with **Next.js 16**, **TypeScript**, **Vercel**, and a modular **AI + Payments** pipeline designed to eliminate revenue leaks and maximize conversions.
 
-**Enterprise-Grade AI Systems | Zero Revenue Leaks | Production Reliability**
+---
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.0.3-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)](https://vercel.com)
+# 🌐 Live Production  
+- **Main Site:** (add URL)  
+- **Payment Portal:** (add URL)  
+- **Technical Audit:** (add URL)
 
-</div>
+---
 
-## 🌐 Live Production
-
-<div align="center">
-
-[![Main Site](https://img.shields.io/badge/Main_Site-lgcylabs.vercel.app-8A2BE2?style=for-the-badge)](https://lgcylabs.vercel.app)
-[![Payment Portal](https://img.shields.io/badge/Payment_Portal-/payments-4B0082?style=for-the-badge)](https://lgcylabs.vercel.app/payments)
-[![Technical Audit](https://img.shields.io/badge/Technical_Audit-/audit-483D8B?style=for-the-badge)](https://lgcylabs.vercel.app/audit)
-
-</div>
-
-## 🏗️ System Architecture
+# 🏗️ System Architecture (Mermaid)
 
 ```mermaid
 graph TB
@@ -40,34 +32,33 @@ graph TB
     
     E --> I[Google Analytics]
     E --> J[Vercel Analytics]
-    
-    style A fill:#e1f5fe
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
-    style D fill:#e8f5e8
-    style E fill:#fff8e1
+```
 
-## 🎯 Core Offerings
+---
 
-### 📦 Digital Products (Instant Delivery)
+# 🎯 Core Offerings
+
+## 📦 Digital Products (Instant Delivery)
 
 | Product | Price | Target | Delivery | Key Features |
-|---------|-------|--------|----------|--------------|
-| **AI E-commerce Boilerplate** | $1,997 | E-commerce startups | Instant download | AI recommendations, inventory automation |
-| **AI Workflow Automation** | $4,997 | Agencies/Enterprises | 2-day setup | Custom workflows, API integrations |
-| **E-commerce Intelligence** | $9,997 | Data-driven teams | 1-week deployment | Predictive analytics, LTV optimization |
+|--------|-------|--------|----------|--------------|
+| **AI E-commerce Boilerplate** | $1,997 | E-commerce startups | Instant | AI recommendations, inventory automation |
+| **AI Workflow Automation** | $4,997 | Agencies/Enterprises | 2 days | Custom workflows, API integrations |
+| **E-commerce Intelligence** | $9,997 | Data-driven teams | 1 week | Predictive analytics, LTV optimization |
 
-### 💼 Consulting Services (High-Touch)
+## 💼 Consulting Services (High-Touch)
 
 | Service | Investment | Timeline | ROI Target | Deliverables |
 |---------|------------|----------|------------|--------------|
-| **Technical Growth Audit** | $7,500 | 1 week | $50K-$250K | Revenue leak analysis, 1-week fix plan |
-| **Revenue-Generating AI System** | $47,500 | 4-6 weeks | $250K+ | Custom agents, 3-month support |
-| **Fractional AI Leadership** | $12,500/mo | Ongoing | Strategic | Weekly sessions, architecture guidance |
+| **Technical Growth Audit** | $7,500 | 1 week | $50K–$250K | Revenue leak analysis, fix plan |
+| **Revenue-Generating AI System** | $47,500 | 4–6 weeks | $250K+ | Agents, infra, 3-month support |
+| **Fractional AI Leadership** | $12,500/mo | Ongoing | Strategic | Weekly sessions, architecture |
 
-## 🛠️ Technical Implementation
+---
 
-### 📁 Project Structure
+# 🛠️ Technical Implementation
+
+## 📁 Project Structure
 
 ```mermaid
 graph TD
@@ -106,8 +97,11 @@ graph TD
     
     E --> E1[payments/]
     E1 --> E11[simple-payments.ts]
+```
 
-### 📦 Dependencies & AI Stack
+---
+
+## 📦 Dependencies & AI Stack
 
 ```json
 {
@@ -124,27 +118,35 @@ graph TD
     "uuid": "^13.0.0"
   }
 }
+```
 
-🤖 AI Implementation
-Primary AI Service: Hugging Face Inference API
+---
 
-File: ./app/api/chat/route.ts - Uses HfInference from @huggingface/inference
+# 🤖 AI Implementation
 
-File: ./app/api/contact/route.ts - Dynamic Hugging Face imports
+### AI Provider  
+**Hugging Face Inference API**
 
-Components: QualifierBot.tsx & EnhancedQualifierBot.tsx for lead scoring
+### API Routes  
+- `./app/api/chat/route.ts` — HfInference chat  
+- `./app/api/contact/route.ts` — Dynamic model loading  
+- **Lead Scoring Components:**  
+  - `QualifierBot.tsx`  
+  - `EnhancedQualifierBot.tsx`  
 
-💰 Payment Infrastructure
-🎯 Multi-Payment Gateway Architecture
-typescript
-// Core Payment Interface
+---
+
+# 💰 Payment Infrastructure
+
+## 🎯 Multi-Payment Gateway Architecture
+
+```ts
 interface PaymentGateway {
   processPayment(amount: number, method: PaymentMethod): Promise<PaymentResult>;
   generateInvoice(customer: Customer, service: string): Invoice;
   trackConversion(event: PaymentEvent): void;
 }
 
-// Supported Payment Methods
 enum PaymentMethod {
   VENMO = 'venmo',
   CASH_APP = 'cashapp',  
@@ -152,33 +154,42 @@ enum PaymentMethod {
   GIFT_CARD = 'giftcard',
   PAYPAL = 'paypal'
 }
-🔧 Payment API Endpoints
-Endpoint	Method	Purpose	Response
-/api/payments/invoice	POST	Generate invoices	{invoiceId, amount, paymentMethods[]}
-/api/payments/instructions	POST	Payment method guides	{instructions, nextSteps}
-/api/leads	POST	Capture qualified leads	{leadId, tier, budget}
-💳 Payment Flow Features
-✅ Zero Bank Account Required - All methods work without traditional banking
+```
 
-✅ Custom Amount Support - Clients can pay any dollar amount
+### 🔧 Payment API Endpoints
 
-✅ Instant Conversion Tracking - Google Analytics integration
+| Endpoint | Method | Purpose | Response |
+|----------|--------|---------|----------|
+| `/api/payments/invoice` | POST | Generate invoice | `{invoiceId, amount, methods[]}` |
+| `/api/payments/instructions` | POST | Payment steps | `{instructions, nextSteps}` |
+| `/api/leads` | POST | Capture lead data | `{leadId, tier}` |
 
-✅ Mobile-Optimized Forms - Responsive payment experience
+---
 
-🚀 Deployment & DevOps
-📡 CI/CD Pipeline
-✅ Automatic Deployment on push to main branch
+# 💳 Payment Flow Features
 
-✅ Vercel Platform with global CDN
+- **No bank account required**  
+- **Custom amounts**  
+- **Instant analytics tracking**  
+- **Mobile-first UX**
 
-✅ Environment Variables managed through Vercel dashboard
+---
 
-✅ Performance Monitoring with real-user metrics
+# 🚀 Deployment & DevOps
 
-🔧 Environment Setup
-bash
-# Public Configuration (.env.local - SAFE TO COMMIT)
+### CI/CD  
+- Auto-deploy on push to `main`  
+- Global Vercel CDN  
+- Env variables managed in Vercel  
+- Real-user analytics  
+
+---
+
+# 🔧 Environment Setup
+
+### Public (`.env.local`, safe to commit)
+
+```
 NEXT_PUBLIC_SITE_URL=https://lgcylabs.vercel.app
 NEXT_PUBLIC_CONTACT_EMAIL=petter2025us@outlook.com
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
@@ -186,102 +197,220 @@ NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/petterjuan
 NEXT_PUBLIC_GITHUB_URL=https://github.com/petterjuan
 NEXT_PUBLIC_HF_URL=https://huggingface.co/petterjuan
 NEXT_PUBLIC_PAYPAL_USERNAME=yourbiz
+```
 
-# PRIVATE CONFIGURATION (Set in Vercel Dashboard - NEVER COMMIT)
-# HUGGINGFACE_HUB_TOKEN=your_hf_token_here
-# NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-# NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_key
-🛡️ Production Readiness
-Area	Status	Tools	Monitoring
-Performance	✅ Optimized	Next.js 16, Turbopack	Vercel Analytics
-Security	✅ Secure	TypeScript, Input validation	Environment variables
-Reliability	✅ Production	Vercel, Error boundaries	Console logging
-Scalability	✅ Ready	Serverless functions	Auto-scaling
-🔒 Security Best Practices
-Git Security
-bash
-# .gitignore includes:
+### Private (Set ONLY in Vercel)
+
+```
+HUGGINGFACE_HUB_TOKEN=xxxx
+SUPABASE_URL=xxxx
+SUPABASE_ANON_KEY=xxxx
+```
+
+---
+
+# 🛡️ Production Readiness
+
+| Area | Status | Tools | Monitoring |
+|------|--------|--------|-------------|
+| Performance | ✅ Optimized | Next.js 16 | Vercel Analytics |
+| Security | ✅ Strong | TS + validation | Env Segregation |
+| Reliability | ✅ High | Serverless | Logging |
+| Scalability | ✅ Ready | Vercel Edge | Auto-scaling |
+
+---
+
+# 🔒 Security Best Practices
+
+### `.gitignore`
+```
 .env*
 !.env.example
 node_modules/
 *.log
 .DS_Store
-Environment Variables
-Public: Safe to commit (prefixed with NEXT_PUBLIC_)
+```
 
-Private: Set in Vercel dashboard only
+- Public = SAFE (NEXT_PUBLIC_)  
+- Private = Vercel  
+- Secrets = NEVER commit  
 
-Secrets: Never committed to repository
+---
 
-📈 Business Impact
-🎯 Conversion Optimization
-🎯 Direct CTAs - "Buy Now" buttons on all product/service cards
+# 📈 Business Impact
 
-⚡ Pre-filled Payments - Seamless checkout with pre-filled amounts
+### Funnels Optimized For Revenue
+- Direct-buy CTAs  
+- Pre-filled payment flows  
+- Multi-step qualification  
+- Social proof + urgency  
 
-🔄 Multi-step Flow - Email capture and payment method selection
+### Conversion Targets
+- **Page → Payment:** 15%  
+- **AOV:** $7,500+  
+- **Payment Completion:** 85%+  
+- **Lead → Customer:** 25%+  
 
-⏰ Urgency Indicators - Limited availability and social proof
+---
 
-📊 Performance Metrics
-Conversion Rate: Services page → Payment page: ~15% target
+# 🏆 Getting Started
 
-Average Order Value: $7,500+ (audit-focused)
-
-Payment Completion: 85%+ with multi-method support
-
-Lead to Customer: 25%+ with AI qualification
-
-🏆 Getting Started
-Development
-bash
-# Clone repository
+## Development
+```bash
 git clone https://github.com/petterjuan/LGCY-Labs
 cd LGCY-Labs
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
-Production Build
-bash
-# Build for production
+```
+
+## Production
+```bash
 npm run build
-
-# Start production server
 npm run start
-Environment Setup
-bash
-# Copy example environment file
+```
+
+## Setup Env
+```bash
 cp .env.example .env.local
+```
 
-# Configure public variables only
-# Set private secrets in Vercel dashboard
-🤝 Contributing
-Fork the repository
+---
 
-Create feature branch (git checkout -b feature/amazing-feature)
+# 🤝 Contributing
+1. Fork  
+2. `git checkout -b feature/foo`  
+3. Commit  
+4. Push  
+5. PR  
 
-Commit changes (git commit -m 'Add amazing feature')
+---
 
-Push to branch (git push origin feature/amazing-feature)
+# 📄 License  
+MIT License.
 
-Open a Pull Request
-
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
 
 <div align="center">
-👨‍💻 Built with ❤️ by Juan Petter
-AI Engineer | ex-NetApp | Building production-ready revenue systems
 
-https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin
-https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github
+👨‍💻 Built with ❤️ by **Juan Petter**  
+AI Engineer | ex-NetApp | Production Revenue Systems  
 
-⚡ Powering the next generation of AI-driven revenue infrastructure
+</div>
 
-📞 Ready to Eliminate Revenue Leaks?
-Schedule Your Technical Audit →
+# 🏗️ LGCY Labs — System Architecture
 
-*Production-ready AI systems delivering measurable ROI within 30 days*
+This document describes the production architecture powering the AI revenue infrastructure platform.
+
+---
+
+# 📡 High-Level Architecture
+
+```mermaid
+graph TB
+    FE[Frontend — Next.js 16] --> API[API Routes / Serverless]
+    API --> PAY[Payments Engine]
+    API --> AI[AI Lead Qualification]
+    API --> ANALYTICS[Analytics Layer]
+    
+    PAY --> VENMO[Venmo]
+    PAY --> CASH[Cash App]
+    PAY --> CRYPTO[Crypto Wallets]
+    PAY --> GIFTCARD[Gift Cards]
+    PAY --> PAYPAL[PayPal]
+
+    AI --> HF[Hugging Face Inference API]
+
+    ANALYTICS --> GA[Google Analytics]
+    ANALYTICS --> VA[Vercel Analytics]
+```
+
+---
+
+# 🔧 Components
+
+## 1. **Frontend (Next.js 16 — App Router)**
+- Server Components enabled  
+- Payment forms  
+- AI-enhanced lead capture  
+- Responsive, mobile-first  
+
+## 2. **API Layer (Serverless)**
+### Key endpoints:
+- `/api/leads`  
+- `/api/chat`  
+- `/api/contact`  
+- `/api/payments/invoice`  
+- `/api/payments/instructions`
+
+## 3. **AI Lead Qualification**
+- Hugging Face Inference API  
+- Real-time budget/timeline scoring  
+- Models loaded dynamically for cost control  
+
+## 4. **Payment Engine**
+Supports:  
+- Venmo  
+- Cash App  
+- Crypto  
+- Gift Cards  
+- PayPal  
+
+### Payment Flow
+```
+User → Payment Selection → Invoice → Instructions → Confirmation → Analytics
+```
+
+## 5. **Analytics Layer**
+- Google Analytics  
+- Vercel Analytics  
+- Conversion tracking at each step  
+
+---
+
+# 🗄️ Project Structure Overview
+
+- `app/` → App Router pages  
+- `components/` → Reusable UI + AI bots  
+- `sections/` → Landing page sections  
+- `lib/payments/` → Business logic  
+- `api/` → Serverless code  
+
+---
+
+# 🔒 Security Model
+
+- Public vs Private env variables  
+- All secrets stored in Vercel only  
+- Serverless isolation per request  
+- Strict TypeScript input validation  
+
+---
+
+# ⚙️ Deployment & Scaling
+
+- Deployed to **Vercel Edge Network**  
+- Auto-scaling on traffic spikes  
+- Global caching + ISR  
+- CI/CD: auto deploy on push  
+
+---
+
+# 📈 Reliability Considerations
+
+- Error boundaries  
+- Payment fallback methods  
+- Retry logic for AI calls  
+- Request logging + analytics  
+
+---
+
+# 🛠️ Future Enhancements
+
+- Full CRM dashboard  
+- Stripe integration (optional)  
+- Agent-powered onboarding  
+- LTV predictive modeling  
+
+---
+
+Built and maintained by **Juan Petter — AI Engineer**
