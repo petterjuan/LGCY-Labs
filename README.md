@@ -1,36 +1,52 @@
-🚀 LGCY Labs - AI Revenue Infrastructure
+# 🚀 LGCY Labs - AI Revenue Infrastructure
+
 <div align="center">
-https://via.placeholder.com/1200x400/4a148c/ffffff?text=AI+Revenue+Infrastructure
 
-Enterprise-Grade AI Systems | Zero Revenue Leaks | Production Reliability
+**Enterprise-Grade AI Systems | Zero Revenue Leaks | Production Reliability**
 
-https://img.shields.io/badge/Next.js-16.0.3-black?style=for-the-badge&logo=next.js
-https://img.shields.io/badge/TypeScript-5.5.0-blue?style=for-the-badge&logo=typescript
-https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel
+[![Next.js](https://img.shields.io/badge/Next.js-16.0.3-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)](https://vercel.com)
 
 </div>
-🌐 Live Production
+
+## 🌐 Live Production
+
 <div align="center">
-https://img.shields.io/badge/%F0%9F%9A%80_Live_Production-lgcylabs.vercel.app-8A2BE2?style=for-the-badge
-https://img.shields.io/badge/%F0%9F%92%B8_Payment_Portal-/payments-4B0082?style=for-the-badge
-https://img.shields.io/badge/%F0%9F%94%8D_Technical_Audit-/audit-483D8B?style=for-the-badge
+
+[![Main Site](https://img.shields.io/badge/🚀_Live_Production-lgcylabs.vercel.app-8A2BE2?style=for-the-badge)](https://lgcylabs.vercel.app)
+[![Payment Portal](https://img.shields.io/badge/💸_Payment_Portal-/payments-4B0082?style=for-the-badge)](https://lgcylabs.vercel.app/payments)
+[![Technical Audit](https://img.shields.io/badge/🔍_Technical_Audit-/audit-483D8B?style=for-the-badge)](https://lgcylabs.vercel.app/audit)
 
 </div>
-🏗️ System Architecture
 
+## 🏗️ System Architecture
 
-
-
-
-
-
-
-
-
-
-
-
-
+```mermaid
+graph TB
+    A[🌐 Client Frontend] --> B[⚡ Next.js 16 App Router]
+    B --> C[💳 Payment Processing]
+    B --> D[🤖 AI Lead Qualification]
+    B --> E[📊 Analytics Tracking]
+    
+    C --> F[🔄 Multi-Payment Gateway]
+    F --> F1[Venmo @Username]
+    F --> F2[Cash App $Cashtag]
+    F --> F3[💰 Crypto Wallet]
+    F --> F4[🎁 Gift Cards]
+    F --> F5[PayPal.me]
+    
+    D --> G[🤗 Hugging Face AI]
+    
+    E --> I[📈 Google Analytics 4]
+    E --> J[🔍 Vercel Analytics]
+    
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e8
+    style E fill:#fff8e1
+    style G fill:#ff6b35
 🎯 Core Offerings
 📦 Digital Products (Instant Delivery)
 Product	Price	Target	Delivery	Key Features
@@ -81,7 +97,7 @@ json
     "next": "^16.0.3",
     "react": "18.2.0",
     "typescript": "5.5.0",
-    "@huggingface/inference": "^4.13.3",  // Primary AI Service
+    "@huggingface/inference": "^4.13.3",
     "@supabase/supabase-js": "^2.84.0",
     "@tailwindcss/postcss": "^4.1.17",
     "framer-motion": "^10.12.5",
@@ -111,11 +127,11 @@ interface PaymentGateway {
 
 // Supported Payment Methods
 enum PaymentMethod {
-  VENMO = 'venmo',      // @Username payments
-  CASH_APP = 'cashapp', // $Cashtag transfers  
-  CRYPTO = 'crypto',    // BTC/USDC wallet
-  GIFT_CARD = 'giftcard', // Amazon/Visa/Apple
-  PAYPAL = 'paypal'     // PayPal.me links
+  VENMO = 'venmo',
+  CASH_APP = 'cashapp',  
+  CRYPTO = 'crypto',
+  GIFT_CARD = 'giftcard',
+  PAYPAL = 'paypal'
 }
 🔧 Payment API Endpoints
 Endpoint	Method	Purpose	Response
@@ -253,4 +269,5 @@ Schedule Your Technical Audit →
 
 *Production-ready AI systems delivering measurable ROI within 30 days*
 
-</div><style> .markdown-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; } .markdown-body h1, .markdown-body h2 { border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; } .markdown-body table { border-collapse: collapse; width: 100%; margin: 1em 0; } .markdown-body table th { background-color: #f6f8fa; font-weight: 600; } .markdown-body table th, .markdown-body table td { border: 1px solid #dfe2e5; padding: 8px 12px; text-align: left; } .markdown-body table tr:nth-child(even) { background-color: #f8f9fa; } </style>
+</div> ```
+Copy and paste this clean version directly into your README.md file. It should render properly with all the badges, tables, and formatting working correctly!
