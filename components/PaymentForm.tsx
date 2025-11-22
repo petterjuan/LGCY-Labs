@@ -11,15 +11,15 @@ export default function PaymentForm() {
   const [useCustomAmount, setUseCustomAmount] = useState(false);
 
   const services = [
-    { name: 'Technical Growth Audit', price: 7500 },
-    { name: 'Revenue-Generating AI System', price: 47500 },
-    { name: 'AI E-commerce Boilerplate', price: 1997 },
+    { name: 'Technical Growth Audit', price: 7500 }, // $7,500
+    { name: 'Revenue-Generating AI System', price: 47500 }, // $47,500
+    { name: 'AI E-commerce Boilerplate', price: 1997 }, // $1,997
     { name: 'custom', price: 0, label: 'Custom Amount' }
   ];
 
   const getAmount = () => {
     if (useCustomAmount && customAmount) {
-      return parseInt(customAmount) * 100; // Convert to cents
+      return parseInt(customAmount); // Already in dollars - NO multiplication!
     }
     const service = services.find(s => s.name === selectedService);
     return service ? service.price : 0;
@@ -33,7 +33,7 @@ export default function PaymentForm() {
   };
 
   const formatPrice = (price: number) => {
-    return (price / 100).toLocaleString('en-US', {
+    return price.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD'
     });
@@ -53,7 +53,7 @@ export default function PaymentForm() {
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'begin_checkout', {
           currency: 'USD',
-          value: getAmount() / 100,
+          value: getAmount(),
           items: [{ item_name: getServiceName() }]
         });
       }
