@@ -14,9 +14,9 @@
 
 <div align="center">
 
-[![Main Site](https://img.shields.io/badge/🚀_Live_Production-lgcylabs.vercel.app-8A2BE2?style=for-the-badge)](https://lgcylabs.vercel.app)
-[![Payment Portal](https://img.shields.io/badge/💸_Payment_Portal-/payments-4B0082?style=for-the-badge)](https://lgcylabs.vercel.app/payments)
-[![Technical Audit](https://img.shields.io/badge/🔍_Technical_Audit-/audit-483D8B?style=for-the-badge)](https://lgcylabs.vercel.app/audit)
+[![Main Site](https://img.shields.io/badge/Main_Site-lgcylabs.vercel.app-8A2BE2?style=for-the-badge)](https://lgcylabs.vercel.app)
+[![Payment Portal](https://img.shields.io/badge/Payment_Portal-/payments-4B0082?style=for-the-badge)](https://lgcylabs.vercel.app/payments)
+[![Technical Audit](https://img.shields.io/badge/Technical_Audit-/audit-483D8B?style=for-the-badge)](https://lgcylabs.vercel.app/audit)
 
 </div>
 
@@ -24,74 +24,92 @@
 
 ```mermaid
 graph TB
-    A[🌐 Client Frontend] --> B[⚡ Next.js 16 App Router]
-    B --> C[💳 Payment Processing]
-    B --> D[🤖 AI Lead Qualification]
-    B --> E[📊 Analytics Tracking]
+    A[Client Frontend] --> B[Next.js 16 App Router]
+    B --> C[Payment Processing]
+    B --> D[AI Lead Qualification]
+    B --> E[Analytics Tracking]
     
-    C --> F[🔄 Multi-Payment Gateway]
-    F --> F1[Venmo @Username]
-    F --> F2[Cash App $Cashtag]
-    F --> F3[💰 Crypto Wallet]
-    F --> F4[🎁 Gift Cards]
-    F --> F5[PayPal.me]
+    C --> F[Multi-Payment Gateway]
+    F --> F1[Venmo]
+    F --> F2[Cash App]
+    F --> F3[Crypto]
+    F --> F4[Gift Cards]
+    F --> F5[PayPal]
     
-    D --> G[🤗 Hugging Face AI]
+    D --> G[Hugging Face AI]
     
-    E --> I[📈 Google Analytics 4]
-    E --> J[🔍 Vercel Analytics]
+    E --> I[Google Analytics]
+    E --> J[Vercel Analytics]
     
     style A fill:#e1f5fe
     style B fill:#fff3e0
     style C fill:#f3e5f5
     style D fill:#e8f5e8
     style E fill:#fff8e1
-    style G fill:#ff6b35
-🎯 Core Offerings
-📦 Digital Products (Instant Delivery)
-Product	Price	Target	Delivery	Key Features
-AI E-commerce Boilerplate	$1,997	E-commerce startups	Instant download	AI recommendations, inventory automation
-AI Workflow Automation	$4,997	Agencies/Enterprises	2-day setup	Custom workflows, API integrations
-E-commerce Intelligence	$9,997	Data-driven teams	1-week deployment	Predictive analytics, LTV optimization
-💼 Consulting Services (High-Touch)
-Service	Investment	Timeline	ROI Target	Deliverables
-Technical Growth Audit	$7,500	1 week	$50K-$250K	Revenue leak analysis, 1-week fix plan
-Revenue-Generating AI System	$47,500	4-6 weeks	$250K+	Custom agents, 3-month support
-Fractional AI Leadership	$12,500/mo	Ongoing	Strategic	Weekly sessions, architecture guidance
-🛠️ Technical Implementation
-📁 Project Structure
-text
-LGCY-Labs/
-├── app/
-│   ├── page.tsx                    # Main landing page
-│   ├── layout.tsx                  # Root layout
-│   ├── payments/
-│   │   └── page.tsx               # Payment portal
-│   ├── audit/
-│   │   └── page.tsx               # Technical audit page
-│   └── api/
-│       ├── payments/
-│       │   ├── invoice/route.ts   # Invoice generation
-│       │   └── instructions/route.ts # Payment guides
-│       ├── chat/route.ts          # Hugging Face AI qualifier
-│       ├── contact/route.ts       # Contact form with AI
-│       └── leads/route.ts         # Lead capture
-├── components/
-│   ├── QualifierBot.tsx           # AI lead qualification
-│   ├── EnhancedQualifierBot.tsx   # Advanced AI scoring
-│   ├── PaymentForm.tsx            # Multi-step payments
-│   ├── MultiPaymentOptions.tsx    # Payment method selector
-│   └── CTAButton.tsx              # Conversion buttons
-├── sections/
-│   ├── Products.tsx               # Digital products
-│   ├── Services.tsx               # Consulting services
-│   ├── Contact.tsx                # Contact with AI scoring
-│   └── Founder.tsx                # Founder section
-└── lib/
-    └── payments/
-        └── simple-payments.ts     # Payment configuration
-📦 Dependencies & AI Stack
-json
+
+## 🎯 Core Offerings
+
+### 📦 Digital Products (Instant Delivery)
+
+| Product | Price | Target | Delivery | Key Features |
+|---------|-------|--------|----------|--------------|
+| **AI E-commerce Boilerplate** | $1,997 | E-commerce startups | Instant download | AI recommendations, inventory automation |
+| **AI Workflow Automation** | $4,997 | Agencies/Enterprises | 2-day setup | Custom workflows, API integrations |
+| **E-commerce Intelligence** | $9,997 | Data-driven teams | 1-week deployment | Predictive analytics, LTV optimization |
+
+### 💼 Consulting Services (High-Touch)
+
+| Service | Investment | Timeline | ROI Target | Deliverables |
+|---------|------------|----------|------------|--------------|
+| **Technical Growth Audit** | $7,500 | 1 week | $50K-$250K | Revenue leak analysis, 1-week fix plan |
+| **Revenue-Generating AI System** | $47,500 | 4-6 weeks | $250K+ | Custom agents, 3-month support |
+| **Fractional AI Leadership** | $12,500/mo | Ongoing | Strategic | Weekly sessions, architecture guidance |
+
+## 🛠️ Technical Implementation
+
+### 📁 Project Structure
+
+```mermaid
+graph TD
+    A[LGCY-Labs] --> B[app/]
+    A --> C[components/]
+    A --> D[sections/]
+    A --> E[lib/]
+    
+    B --> B1[page.tsx]
+    B --> B2[layout.tsx]
+    B --> B3[payments/]
+    B --> B4[audit/]
+    B --> B5[api/]
+    
+    B3 --> B31[page.tsx]
+    B4 --> B41[page.tsx]
+    
+    B5 --> B51[payments/]
+    B5 --> B52[chat/route.ts]
+    B5 --> B53[contact/route.ts]
+    B5 --> B54[leads/route.ts]
+    
+    B51 --> B511[invoice/route.ts]
+    B51 --> B512[instructions/route.ts]
+    
+    C --> C1[QualifierBot.tsx]
+    C --> C2[EnhancedQualifierBot.tsx]
+    C --> C3[PaymentForm.tsx]
+    C --> C4[MultiPaymentOptions.tsx]
+    C --> C5[CTAButton.tsx]
+    
+    D --> D1[Products.tsx]
+    D --> D2[Services.tsx]
+    D --> D3[Contact.tsx]
+    D --> D4[Founder.tsx]
+    
+    E --> E1[payments/]
+    E1 --> E11[simple-payments.ts]
+
+### 📦 Dependencies & AI Stack
+
+```json
 {
   "dependencies": {
     "next": "^16.0.3",
@@ -106,6 +124,7 @@ json
     "uuid": "^13.0.0"
   }
 }
+
 🤖 AI Implementation
 Primary AI Service: Hugging Face Inference API
 
@@ -262,12 +281,7 @@ https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github
 
 ⚡ Powering the next generation of AI-driven revenue infrastructure
 
-</div>
-<div align="center">
 📞 Ready to Eliminate Revenue Leaks?
 Schedule Your Technical Audit →
 
 *Production-ready AI systems delivering measurable ROI within 30 days*
-
-</div> ```
-Copy and paste this clean version directly into your README.md file. It should render properly with all the badges, tables, and formatting working correctly!
