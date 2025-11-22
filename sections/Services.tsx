@@ -5,7 +5,7 @@ export default function Services() {
   const services = [
     {
       name: "Technical Growth Audit",
-      price: 7500,
+      price: 7500, // $7,500
       description: "Identifies $50K-$250K in immediate revenue opportunities",
       duration: "1-week comprehensive analysis",
       features: [
@@ -18,7 +18,7 @@ export default function Services() {
     },
     {
       name: "Revenue-Generating AI System",
-      price: 47500,
+      price: 47500, // $47,500
       description: "Typically delivers $250K+ ROI within 6 months",
       duration: "4–6 week implementation",
       features: [
@@ -31,7 +31,7 @@ export default function Services() {
     },
     {
       name: "Fractional AI Leadership",
-      price: 12500,
+      price: 12500, // $12,500/month
       description: "Like having a world-class AI engineer on retainer",
       duration: "Ongoing strategic guidance",
       features: [
@@ -45,7 +45,7 @@ export default function Services() {
   ];
 
   const formatPrice = (price: number) => {
-    return (price / 100).toLocaleString('en-US', {
+    return price.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD'
     });
