@@ -1,42 +1,43 @@
-// Simple payment system using direct bank transfers and PayPal
-// Free and compatible with Next.js 16
-
-export interface PaymentLink {
-  service: string;
+export interface Invoice {
+  id: string;
   amount: number;
-  paypalLink: string;
-  bankTransferDetails: string;
+  service: string;
+  customerEmail: string;
+  createdAt: Date;
 }
 
-export const paymentLinks: PaymentLink[] = [
-  {
-    service: "AI E-commerce Boilerplate",
-    amount: 1997,
-    paypalLink: "https://paypal.me/yourbiz/1997",
-    bankTransferDetails: "Bank transfer for AI Boilerplate - $1,997"
-  },
-  {
-    service: "Technical Growth Audit", 
-    amount: 7500,
-    paypalLink: "https://paypal.me/yourbiz/7500",
-    bankTransferDetails: "Bank transfer for Growth Audit - $7,500"
-  },
-  {
-    service: "Revenue-Generating AI System",
-    amount: 47500,
-    paypalLink: "https://paypal.me/yourbiz/47500", 
-    bankTransferDetails: "Bank transfer for AI System - $47,500"
-  }
-];
-
-export function generateInvoice(customerEmail: string, service: string, amount: number) {
-  const invoiceId = `INV-${Date.now()}`;
+export function generateInvoice(email: string, service: string, amount: number): Invoice {
   return {
-    invoiceId,
-    customerEmail,
-    service,
+    id: `inv_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
     amount,
-    dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
-    status: 'pending' as const
+    service,
+    customerEmail: email,
+    createdAt: new Date()
   };
 }
+
+export const paymentMethods = {
+  venmo: { 
+    username: process.env.VENMO_USERNAME || 'YourVenmoUsername',
+    instructions: (amount: number, service: string) => 
+      `Send $${amount} to @YourVenmoUsername with note: "${service}"`
+  },
+  paypal: { 
+    username: process.env.PAYPAL_USERNAME || 'yourbiz',
+    instructions: (amount: number, service: string) =>
+      `Pay $${amount} via PayPal.me/yourbiz`
+  },
+  cashapp: { 
+    username: process.env.CASHAPP_USERNAME || 'YourCashApp',
+    instructions: (amount: number, service: string) =>
+      `Send $${amount} to $YourCashApp with note: "${service}"`
+  },
+  crypto: {
+    instructions: (amount: number, service: string) =>
+      `Contact for crypto wallet details - $${amount} for "${service}"`
+  },
+  giftcard: {
+    instructions: (amount: number, service: string) =>
+      `Purchase $${amount} Amazon/Visa gift card for "${service}"`
+  }
+};

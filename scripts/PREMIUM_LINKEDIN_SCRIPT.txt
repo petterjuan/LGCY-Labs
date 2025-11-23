@@ -1,0 +1,28 @@
+ELITE LINKEDIN OUTREACH - $7.5K+ DEALS
+
+Subject: Fortune 500-grade AI reliability for your revenue systems
+
+"Hi [Name], your work at [Company] caught my attention.
+
+I help technical leaders like you solve a specific problem: the 15-30% revenue leakage that happens when AI automation fails silently.
+
+At NetApp, I resolved $1M+ system failures for Fortune 500 companies. Now I apply that same enterprise reliability engineering to revenue systems.
+
+We've built an AI qualifier that identifies exact revenue leaks in 2 minutes: https://lgcylabs.vercel.app
+
+It assesses:
+- Specific automation gaps costing you revenue
+- Recovery opportunities with 3-8x ROI potential
+- Budget-aligned solutions ($7.5K-$47.5K range)
+
+Worth a quick assessment to see what it uncovers?
+
+Best,
+Juan Petter
+ex-NetApp Reliability Engineer | AI Revenue Systems"
+
+TARGET PROFILE (Send to these only):
+- CTOs at SaaS companies ($10M+ ARR)
+- VP Engineering at scaling startups (Series B+)
+- Technical founders with revenue responsibility
+- Heads of Product/Engineering at tech companies

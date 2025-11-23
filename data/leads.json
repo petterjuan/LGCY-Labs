@@ -1,0 +1,16 @@
+[
+  {
+    "email": "ceo@startup.com",
+    "budget": 50000,
+    "message": "Need AI revenue system",
+    "challenge": "lgcy",
+    "timestamp": "2025-11-23T20:59:19.336Z"
+  },
+  {
+    "email": "cto@fortune500.com",
+    "budget": 250000,
+    "message": "Need enterprise AI automation",
+    "challenge": "lgcy",
+    "timestamp": "2025-11-23T21:01:05.338Z"
+  }
+]
