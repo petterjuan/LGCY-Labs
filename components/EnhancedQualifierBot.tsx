@@ -32,7 +32,14 @@ export default function EnhancedQualifierBot() {
     const initialMessage: Message = {
       id: '1',
       role: 'assistant',
-      content: "Hi! I'm the LGCY Labs AI qualifier. I help businesses understand how agentic AI systems can drive revenue and reduce costs. What's your biggest operational challenge right now?",
+      content: "Hi! I'm LGCY's Revenue Qualification AI. We help companies recover 15-30% of leaked revenue with self-healing AI systems.
+
+To see if we can help, I need 3 quick details:
+1. What's the biggest revenue leak costing you money?
+2. Do you have budget allocated? (Typically $7.5K-$47.5K)
+3. What's your implementation timeline?
+
+This helps me determine if we can deliver the 3-8x ROI our clients expect.",
       timestamp: new Date()
     };
     setMessages([initialMessage]);

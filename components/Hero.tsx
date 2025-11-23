@@ -14,7 +14,7 @@ export default function Hero() {
           viewport={{ once: true }}
         >
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
-            Stop Revenue Leaks with Self-Healing AI Systems
+            Recover 15-30% of Leaked Revenue with Self-Healing AI Systems
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-blue-100 leading-relaxed">
             Most AI automation fails silently, costing you customers and revenue. We build bulletproof agentic AI that not only prevents catastrophic failures — it actively identifies and captures missed revenue opportunities 24/7.
@@ -47,7 +47,7 @@ export default function Hero() {
 
           {/* Urgency Indicator */}
           <p className="mt-6 text-sm text-blue-200 opacity-80">
-            🚀 Only 3 implementation spots available this month
+            🚀 Implementation spots available - book your technical audit now
           </p>
         </motion.div>
 
