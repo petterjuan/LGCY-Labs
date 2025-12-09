@@ -58,7 +58,7 @@ export default function Services() {
   ];
 
   const formatPrice = (price: number) => {
-    return `$\${price.toLocaleString('en-US')}`;
+    return `$${price.toLocaleString('en-US')}`;
   };
 
   return (

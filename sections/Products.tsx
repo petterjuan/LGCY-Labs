@@ -53,7 +53,7 @@ export default function Products() {
 
   const formatPrice = (price: number) => {
     // Remove .00 for cleaner pricing display
-    return `$\${price.toLocaleString('en-US')}`;
+    return `$${price.toLocaleString('en-US')}`;
   };
 
   return (
