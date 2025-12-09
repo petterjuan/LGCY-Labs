@@ -17,7 +17,8 @@
     "jsx": "react-jsx",
     "incremental": true,
     "types": [
-      "node"
+      "node",
+      "gtag.js"
     ],
     "esModuleInterop": true,
     "plugins": [
@@ -32,6 +33,7 @@
   },
   "include": [
     "next-env.d.ts",
+    "globals.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
