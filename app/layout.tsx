@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollRestoration from "../components/ScrollRestoration";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://lgcylabs.vercel.app";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
